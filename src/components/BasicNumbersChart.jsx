@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Volume2 } from 'lucide-react';
-import { BASIC_NUMBERS_GUIDE } from '../data/studyGuidesData';
+import { BASIC_NUMBERS_GUIDE, TENS_NUMBERS_GUIDE } from '../data/studyGuidesData';
 import { speech } from '../utils/speech';
 
-export default function BasicNumbersChart({ showRomaji, audioEnabled }) {
+function NumberReadingChart({ title, numbers, note, showRomaji, audioEnabled }) {
   const [hiddenNumbers, setHiddenNumbers] = useState([]);
   const anyHidden = hiddenNumbers.length > 0;
 
@@ -13,17 +13,17 @@ export default function BasicNumbersChart({ showRomaji, audioEnabled }) {
   }
 
   return (
-    <section aria-label="Numbers 1–10" className="bg-white border border-slate-200 rounded-3xl p-4 sm:p-6">
+    <section aria-label={title} className="bg-white border border-slate-200 rounded-3xl p-4 sm:p-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-lg font-extrabold text-slate-900">Numbers 1–10</h2>
-        <button type="button" onClick={() => setHiddenNumbers(anyHidden ? [] : BASIC_NUMBERS_GUIDE.map(item => item.num))}
+        <h2 className="text-lg font-extrabold text-slate-900">{title}</h2>
+        <button type="button" onClick={() => setHiddenNumbers(anyHidden ? [] : numbers.map(item => item.num))}
           className="px-3 py-2 rounded-xl border border-indigo-200 bg-indigo-50 text-indigo-700 text-xs font-bold">
           {anyHidden ? 'Show all readings' : 'Hide all readings'}
         </button>
       </div>
       <p className="text-sm text-slate-500 mt-2">Read each number, listen, then hide the readings and tap a card to check your memory.</p>
       <ol className="grid grid-cols-2 sm:grid-cols-5 gap-2 mt-4">
-        {BASIC_NUMBERS_GUIDE.map(item => {
+        {numbers.map(item => {
           const visible = !hiddenNumbers.includes(item.num);
           return <li key={item.num} className="rounded-2xl border border-indigo-100 bg-indigo-50/60 flex flex-col">
             <button type="button" onClick={() => toggleReading(item.num)} aria-expanded={visible}
@@ -49,7 +49,20 @@ export default function BasicNumbersChart({ showRomaji, audioEnabled }) {
           </li>;
         })}
       </ol>
-      <p className="text-xs text-slate-500 mt-3">4, 7 and 9 have alternate readings. Use よん, なな and きゅう for general counting; other readings depend on context.</p>
+      <p className="text-xs text-slate-500 mt-3">{note}</p>
     </section>
+  );
+}
+
+export default function BasicNumbersChart({ showRomaji, audioEnabled }) {
+  return (
+    <div className="space-y-6">
+      <NumberReadingChart title="Numbers 1–10" numbers={BASIC_NUMBERS_GUIDE}
+        showRomaji={showRomaji} audioEnabled={audioEnabled}
+        note="4, 7 and 9 have alternate readings. Use よん, なな and きゅう for general counting; other readings depend on context." />
+      <NumberReadingChart title="Tens 10–90" numbers={TENS_NUMBERS_GUIDE}
+        showRomaji={showRomaji} audioEnabled={audioEnabled}
+        note={<>For 20–90, put the digit before <span lang="ja" className="font-jp">じゅう</span>{showRomaji && ' (juu)'}. Add ones after the ten: 21 = <span lang="ja" className="font-jp">にじゅういち</span>{showRomaji && ' (nijuu ichi)'}.</>} />
+    </div>
   );
 }

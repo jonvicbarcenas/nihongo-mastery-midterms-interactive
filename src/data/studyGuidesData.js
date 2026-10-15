@@ -13,6 +13,18 @@ export const BASIC_NUMBERS_GUIDE = [
   { num: 10, kanji: '十', kana: 'じゅう', romaji: 'juu' },
 ];
 
+export const TENS_NUMBERS_GUIDE = [
+  { num: 10, kanji: '十', kana: 'じゅう', romaji: 'juu' },
+  { num: 20, kanji: '二十', kana: 'にじゅう', romaji: 'nijuu' },
+  { num: 30, kanji: '三十', kana: 'さんじゅう', romaji: 'sanjuu' },
+  { num: 40, kanji: '四十', kana: 'よんじゅう', romaji: 'yonjuu' },
+  { num: 50, kanji: '五十', kana: 'ごじゅう', romaji: 'gojuu' },
+  { num: 60, kanji: '六十', kana: 'ろくじゅう', romaji: 'rokujuu' },
+  { num: 70, kanji: '七十', kana: 'ななじゅう', romaji: 'nanajuu' },
+  { num: 80, kanji: '八十', kana: 'はちじゅう', romaji: 'hachijuu' },
+  { num: 90, kanji: '九十', kana: 'きゅうじゅう', romaji: 'kyuujuu' },
+];
+
 export const IRREGULAR_NUMBERS_GUIDE = {
   title: 'Irregular Numbers Cheat Sheet',
   subtitle: 'Euphonic sound shifts you must memorize for exams',
