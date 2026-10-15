@@ -1,0 +1,16 @@
+node_modules/
+dist/
+tmp/
+.playwright-cli/
+output/playwright/
+*.local
+.env
+.env.*
+!.env.example
+.railway/
+*.log
+
+# Local lecture source files and extraction artifacts.
+*.pdf
+/extracted_lessons.json
+/inspect_lessons.py

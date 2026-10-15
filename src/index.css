@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+    margin: 0;
+    min-width: 320px;
+    overflow-wrap: anywhere;
+  }
+
+  button, input, select, summary {
+    min-height: 44px;
+  }
+
+  button {
+    touch-action: manipulation;
+    min-width: 44px;
+  }
+
+  button:focus-visible, input:focus-visible, summary:focus-visible, a:focus-visible {
+    outline: 3px solid #4f46e5;
+    outline-offset: 3px;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  .grid > *, main > div {
+    min-width: 0;
+  }
+}
+
+.font-jp {
+  font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+}
+
+/* Long tab labels keep their width inside their own horizontal scroller. */
+.overflow-x-auto > button {
+  flex-shrink: 0;
+}
+
+main h1 > svg {
+  flex-shrink: 0;
+}
+
+/* Custom drawing canvas grid styling */
+.canvas-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(226, 232, 240, 0.8) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.8) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Pulse animation for active stroke guide */
+@keyframes strokeGuidePulse {
+  0%, 100% {
+    opacity: 0.85;
+    stroke-width: 14;
+  }
+  50% {
+    opacity: 0.45;
+    stroke-width: 18;
+  }
+}
+
+.animate-stroke-guide {
+  animation: strokeGuidePulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes drawStroke {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-draw-stroke {
+  stroke-dasharray: 1;
+  animation: drawStroke 650ms linear both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

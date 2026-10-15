@@ -1,0 +1,16 @@
+.git
+.github
+.railway
+.playwright-cli
+node_modules
+dist
+tmp
+output
+docs
+*.pdf
+*.log
+*.local
+.env
+.env.*
+extracted_lessons.json
+inspect_lessons.py
