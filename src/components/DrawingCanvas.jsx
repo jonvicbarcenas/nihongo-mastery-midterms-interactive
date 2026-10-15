@@ -5,7 +5,7 @@ import { soundFx } from '../utils/sound';
 import confetti from 'canvas-confetti';
 import { sampleStroke, matchesGuidedStroke } from '../utils/strokes';
 import { WRITING_WORKSHEETS } from '../data/writingWorksheets';
-import { Play, RotateCcw, Undo2, Check, Star, Volume2, Award, ArrowRight, PenTool } from 'lucide-react';
+import { Play, RotateCcw, Undo2, Check, Star, Volume2, Award, ArrowLeft, ArrowRight, PenTool } from 'lucide-react';
 
 export default function DrawingCanvas({ showRomaji, audioEnabled, initialWorksheetId = 'all' }) {
   const [worksheetId, setWorksheetId] = useState(initialWorksheetId);
@@ -34,6 +34,14 @@ export default function DrawingCanvas({ showRomaji, audioEnabled, initialWorkshe
     if (activeFilter === 'basic') return item.category === 'basic' && (worksheetId === 'all' || item.worksheetId === worksheetId);
     return item.category === activeFilter;
   });
+
+  const moveCharacter = (offset) => {
+    if (filteredChars.length === 0) return;
+    setSelectedCharId(currentId => {
+      const currentIndex = filteredChars.findIndex(item => item.id === currentId);
+      return filteredChars[(currentIndex + offset + filteredChars.length) % filteredChars.length].id;
+    });
+  };
 
   useEffect(() => {
     if (!filteredChars.some(item => item.id === selectedCharId)) setSelectedCharId(filteredChars[0].id);
@@ -654,10 +662,16 @@ export default function DrawingCanvas({ showRomaji, audioEnabled, initialWorkshe
 
           {/* Action Toolbar */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-5">
-            <button onClick={() => setSelectedCharId(filteredChars[(filteredChars.findIndex(item => item.id === selectedCharId) + 1) % filteredChars.length].id)}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold">
-              Next character<ArrowRight className="w-4 h-4" />
-            </button>
+            <div role="group" aria-label="Character navigation" className="grid grid-cols-2 gap-2 w-full sm:w-auto">
+              <button type="button" onClick={() => moveCharacter(-1)}
+                className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold">
+                <ArrowLeft className="w-4 h-4 shrink-0" /><span>Previous character</span>
+              </button>
+              <button type="button" onClick={() => moveCharacter(1)}
+                className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold">
+                <span>Next character</span><ArrowRight className="w-4 h-4 shrink-0" />
+              </button>
+            </div>
             {activeStage === 'demo' ? (
               <button
                 onClick={playDemo}
