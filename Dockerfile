@@ -6,6 +6,9 @@ COPY . .
 RUN npm run check && npm run build
 
 FROM caddy:2-alpine
+# Render can reject executables with file capabilities. PORT is unprivileged,
+# so this server does not need the base image's low-port binding capability.
+RUN if [ -n "$(getcap /usr/bin/caddy)" ]; then setcap -r /usr/bin/caddy; fi
 WORKDIR /app
 COPY Caddyfile ./Caddyfile
 COPY --from=build /app/dist ./dist
