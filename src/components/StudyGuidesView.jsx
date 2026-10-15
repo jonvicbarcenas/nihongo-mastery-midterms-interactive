@@ -8,6 +8,7 @@ import {
 import { speech } from '../utils/speech';
 import { readJapaneseNumber } from '../utils/numbers';
 import { Volume2, Calculator, BookOpen } from 'lucide-react';
+import BasicNumbersChart from './BasicNumbersChart';
 
 export default function StudyGuidesView({ showRomaji, audioEnabled }) {
   const [activeGuideTab, setActiveGuideTab] = useState('numbers');
@@ -82,6 +83,7 @@ export default function StudyGuidesView({ showRomaji, audioEnabled }) {
       {/* TAB 1: NUMBERS & 4-DIGIT GROUPING CALCULATOR */}
       {activeGuideTab === 'numbers' && (
         <div className="space-y-6">
+          <BasicNumbersChart showRomaji={showRomaji} audioEnabled={audioEnabled} />
 
           {/* Interactive 4-Digit Chunking Calculator */}
           <div className="bg-gradient-to-br from-indigo-900 to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-lg">

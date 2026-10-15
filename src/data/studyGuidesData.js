@@ -1,5 +1,18 @@
 // Interactive Study Guides and Cheat Sheets Data from Professor Delantar's Slides
 
+export const BASIC_NUMBERS_GUIDE = [
+  { num: 1, kanji: '一', kana: 'いち', romaji: 'ichi' },
+  { num: 2, kanji: '二', kana: 'に', romaji: 'ni' },
+  { num: 3, kanji: '三', kana: 'さん', romaji: 'san' },
+  { num: 4, kanji: '四', kana: 'よん', romaji: 'yon', alternateKana: 'し', alternateRomaji: 'shi' },
+  { num: 5, kanji: '五', kana: 'ご', romaji: 'go' },
+  { num: 6, kanji: '六', kana: 'ろく', romaji: 'roku' },
+  { num: 7, kanji: '七', kana: 'なな', romaji: 'nana', alternateKana: 'しち', alternateRomaji: 'shichi' },
+  { num: 8, kanji: '八', kana: 'はち', romaji: 'hachi' },
+  { num: 9, kanji: '九', kana: 'きゅう', romaji: 'kyuu', alternateKana: 'く', alternateRomaji: 'ku' },
+  { num: 10, kanji: '十', kana: 'じゅう', romaji: 'juu' },
+];
+
 export const IRREGULAR_NUMBERS_GUIDE = {
   title: 'Irregular Numbers Cheat Sheet',
   subtitle: 'Euphonic sound shifts you must memorize for exams',

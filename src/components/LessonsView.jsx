@@ -5,6 +5,7 @@ import { DIACRITIC_ROWS, DIGRAPH_ROWS } from '../data/lessonSupplements';
 import { readStored, writeStored } from '../utils/storage';
 import { speech } from '../utils/speech';
 import LessonPractice from './LessonPractice';
+import BasicNumbersChart from './BasicNumbersChart';
 import { WRITING_WORKSHEETS } from '../data/writingWorksheets';
 
 function KanaChart({ lessonId, showRomaji, audioEnabled }) {
@@ -114,6 +115,7 @@ export default function LessonsView({ showRomaji, audioEnabled, onStartQuiz, onS
         </p>
       </section>
       {['lesson-1-2', 'lesson-1-3'].includes(lessonId) && <KanaChart key={`chart-${lessonId}`} lessonId={lessonId} showRomaji={showRomaji} audioEnabled={audioEnabled} />}
+      {lessonId === 'lesson-3' && <BasicNumbersChart showRomaji={showRomaji} audioEnabled={audioEnabled} />}
       <section className="bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 space-y-4" aria-label="Vocabulary flashcards">
         <div className="flex flex-wrap justify-between items-center gap-3">
           <div>
