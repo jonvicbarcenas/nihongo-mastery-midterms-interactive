@@ -1,10 +1,11 @@
 import React from 'react';
-import { PenTool, CheckCircle2, BookOpen, BookmarkCheck, Volume2, VolumeX, Eye, EyeOff, Library } from 'lucide-react';
+import { PenTool, CheckCircle2, BookOpen, BookmarkCheck, Volume2, VolumeX, Eye, EyeOff, Library, Layers } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, showRomaji, setShowRomaji,
   audioEnabled, setAudioEnabled, mistakesCount }) {
   const tabs = [
     { id: 'lessons', label: 'Lessons', icon: Library },
+    { id: 'flashcards', label: 'Hiragana Flashcards', short: 'Cards', icon: Layers },
     { id: 'drawing', label: 'Kana Tracing', short: 'Tracing', icon: PenTool },
     { id: 'quizzes', label: 'Lesson Quizzes', short: 'Quizzes', icon: CheckCircle2 },
     { id: 'study', label: 'Study Guides', short: 'Guides', icon: BookOpen },
@@ -35,16 +36,16 @@ export default function Navbar({ activeTab, setActiveTab, showRomaji, setShowRom
             </button>
           </div>
         </div>
-        <nav className="grid grid-cols-5 gap-1 border-t border-slate-100 py-1" aria-label="Main navigation">
+        <nav className="grid grid-cols-6 gap-1 border-t border-slate-100 py-1" aria-label="Main navigation">
           {tabs.map(tab => {
             const Icon = tab.icon;
             return <button key={tab.id} onClick={() => setActiveTab(tab.id)} aria-current={activeTab === tab.id ? 'page' : undefined}
-              aria-label={tab.label} className={`flex flex-col sm:flex-row justify-center items-center gap-1 sm:gap-2 py-2 px-1 rounded-xl text-[10px] sm:text-xs font-bold ${activeTab === tab.id ? 'bg-torii-50 text-torii-700' : 'text-slate-600 hover:bg-slate-50'}`}>
+              aria-label={tab.label} className={`flex flex-col md:flex-row justify-center items-center gap-1 md:gap-2 py-2 px-1 rounded-xl text-[10px] sm:text-xs font-bold ${activeTab === tab.id ? 'bg-torii-50 text-torii-700' : 'text-slate-600 hover:bg-slate-50'}`}>
               <span className="relative"><Icon className="w-4 h-4" />
                 {tab.id === 'mistakes' && mistakesCount > 0 && <span className="absolute -top-2 -right-3 rounded-full bg-rose-600 text-white text-[9px] px-1">{mistakesCount}</span>}
               </span>
-              <span className="sm:hidden">{tab.short || tab.label}</span>
-              <span className="hidden sm:inline">{tab.label}</span>
+              <span className="md:hidden">{tab.short || tab.label}</span>
+              <span className="hidden md:inline">{tab.label}</span>
             </button>;
           })}
         </nav>

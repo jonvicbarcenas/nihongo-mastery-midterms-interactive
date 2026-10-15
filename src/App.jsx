@@ -5,6 +5,7 @@ import QuizView from './components/QuizView';
 import StudyGuidesView from './components/StudyGuidesView';
 import MistakeNotebookView from './components/MistakeNotebookView';
 import LessonsView from './components/LessonsView';
+import KanaFlashcardsView from './components/KanaFlashcardsView';
 import { readStored, writeStored } from './utils/storage';
 import { speech } from './utils/speech';
 import { soundFx } from './utils/sound';
@@ -96,6 +97,10 @@ export default function App() {
             showRomaji={showRomaji}
             audioEnabled={audioEnabled}
           />
+        )}
+
+        {activeTab === 'flashcards' && (
+          <KanaFlashcardsView showRomaji={showRomaji} audioEnabled={audioEnabled} />
         )}
 
         {activeTab === 'quizzes' && (

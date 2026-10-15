@@ -8,6 +8,8 @@ import { matchesGuidedStroke } from '../src/utils/strokes.js';
 import { shuffleQuestion, displayOption } from '../src/utils/practice.js';
 import { readStored, writeStored } from '../src/utils/storage.js';
 import { WRITING_WORKSHEETS, BASIC_KANA } from '../src/data/writingWorksheets.js';
+import { KANA_FLASHCARDS, KANA_FLASHCARD_DECKS } from '../src/data/kanaFlashcards.js';
+import { shuffleKanaDeck } from '../src/utils/kanaFlashcards.js';
 
 const sourceFiles = [...new Set([...LESSONS_METADATA.map(lesson => lesson.source.file), ...WRITING_WORKSHEETS.map(sheet => sheet.file)])].sort();
 const actualFiles = readdirSync(new URL('..', import.meta.url)).filter(file => file.endsWith('.pdf')).sort();
@@ -21,6 +23,29 @@ assert.equal(new Set(BASIC_KANA.map(item => item.kana)).size, 46);
 const kanaPaths = JSON.parse(readFileSync(new URL('../src/data/kanaStrokes.json', import.meta.url), 'utf8')).paths;
 for (const item of BASIC_KANA) assert.ok(kanaPaths[item.kana]?.length, `Missing writing model for ${item.kana}`);
 assert.deepEqual(WRITING_WORKSHEETS.map(sheet => sheet.characters.length), [5, 5, 5, 5, 5, 5, 5, 3, 5, 3]);
+
+const flashcardIds = KANA_FLASHCARDS.map(card => card.id);
+assert.equal(flashcardIds.length, 105);
+assert.equal(new Set(flashcardIds).size, 105, 'Each character must have one flashcard');
+assert.equal(KANA_FLASHCARD_DECKS.length, 16);
+assert.equal(new Set(KANA_FLASHCARD_DECKS.map(deck => deck.id)).size, 16);
+assert.deepEqual(KANA_FLASHCARD_DECKS.slice(0, 6).map(deck => deck.cardIds.length), [105, 46, 25, 33, 1, 1]);
+for (const deck of KANA_FLASHCARD_DECKS) {
+  assert.ok(deck.cardIds.length > 0, deck.id);
+  assert.equal(new Set(deck.cardIds).size, deck.cardIds.length, deck.id);
+  assert.ok(deck.cardIds.every(id => flashcardIds.includes(id)), deck.id);
+  const input = [...deck.cardIds];
+  const shuffled = shuffleKanaDeck(deck.cardIds, deck.cardIds[0]);
+  assert.deepEqual([...shuffled].sort(), [...input].sort(), `Shuffle must preserve the deck: ${deck.id}`);
+  assert.deepEqual(deck.cardIds, input, 'Shuffling must not mutate lesson order');
+  if (input.length > 1) assert.notEqual(shuffled[0], input[0], 'New rounds must avoid an immediate repeat');
+}
+for (const sheet of WRITING_WORKSHEETS) {
+  assert.deepEqual(KANA_FLASHCARD_DECKS.find(deck => deck.id === `writing-${sheet.id}`).cardIds, sheet.characters);
+}
+assert.deepEqual(shuffleKanaDeck([]), []);
+assert.deepEqual(shuffleKanaDeck(['ん'], 'ん'), ['ん']);
+for (const card of KANA_FLASHCARDS) assert.ok(card.kana && card.reading && card.lesson && card.tip, card.id);
 
 assert.equal(LESSONS_METADATA.length, 6);
 assert.equal(LESSONS_METADATA.find(lesson => lesson.id === 'lesson-2').vocabulary.length, 48);
@@ -83,4 +108,4 @@ assert.equal(displayOption('Three digits (like in English)', false), 'Three digi
 global.localStorage = { getItem: () => '{broken', setItem: () => { throw new Error('unavailable'); } };
 assert.equal(readStored('key', true), true);
 assert.doesNotThrow(() => writeStored('key', true));
-console.log(`Lesson checks passed: ${sourceFiles.length} PDFs mapped, 10 writing worksheets / 46 basic kana, ${LESSONS_METADATA.reduce((n, l) => n + l.vocabularyCount, 0)} flashcards, ${QUIZ_QUESTIONS.length} questions, ${readings.length} reference number readings, storage and stroke validation.`);
+console.log(`Lesson checks passed: ${sourceFiles.length} PDFs mapped, 10 writing worksheets / 46 basic kana, ${LESSONS_METADATA.reduce((n, l) => n + l.vocabularyCount, 0)} vocabulary flashcards, 105 kana flashcards / 16 decks, ${QUIZ_QUESTIONS.length} questions, ${readings.length} reference number readings, storage and stroke validation.`);

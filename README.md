@@ -6,12 +6,13 @@ An interactive Japanese study app built with React and Vite, based on the FL033 
 
 - Ten hiragana writing worksheets covering all 46 basic characters.
 - Stroke demonstrations, guided tracing and freehand model comparison for 105 kana and combinations.
+- Shuffled hiragana flashcards for all 105 characters, individual kana lessons or writing worksheets, with hidden readings and a review round for missed or skipped cards.
 - Six lecture modules with 183 flashcards and 52 quiz questions.
 - Number worksheets, sentence-building activities and a four-digit number converter.
 - A persistent mistake notebook, optional romaji and browser Japanese speech synthesis.
 - Responsive layouts and pointer input for touch, pen and mouse.
 
-Progress is saved in the current browser. Japanese audio depends on the voices installed on the device.
+Vocabulary progress and the mistake notebook are saved in the current browser. Hiragana flashcard rounds start fresh when switching decks or reopening the section. Japanese audio depends on the voices installed on the device.
 
 ## Run locally
 
