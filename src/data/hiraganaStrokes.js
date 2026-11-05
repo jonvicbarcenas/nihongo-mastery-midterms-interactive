@@ -4,7 +4,7 @@
 import kanaData from './kanaStrokes.json';
 import { DIACRITIC_ROWS, DIGRAPH_ROWS } from './lessonSupplements';
 import { LESSONS_METADATA } from './lessonsData';
-import { BASIC_KANA } from './writingWorksheets';
+import { BASIC_KANA, KATAKANA_PREFINAL_KANA } from './writingWorksheets';
 
 function strokesFor(kana) {
   const parts = [...kana];
@@ -13,7 +13,7 @@ function strokesFor(kana) {
     const scale = parts.length === 1 ? 180 / 109 : partIndex === 0 ? 1.12 : 0.72;
     const x = parts.length === 1 ? 10 : partIndex === 0 ? 0 : 115;
     const y = parts.length === 1 ? 10 : partIndex === 0 ? 8 : 78;
-    return kanaData.paths[part].map((path, strokeIndex) => {
+    return (kanaData.paths[part] || []).map((path, strokeIndex) => {
       const start = path.match(/[Mm]\s*([\d.-]+)[,\s]+([\d.-]+)/);
       return { id: ++index, path, scale, x, y, transform: `translate(${x} ${y}) scale(${scale})`,
         points: [{ x: Number(start[1]) * scale + x, y: Number(start[2]) * scale + y }],
@@ -23,11 +23,45 @@ function strokesFor(kana) {
 }
 
 function makeItem(kana, romaji, category, lesson, subgroup, meaning) {
-  const vocabulary = LESSONS_METADATA.find(item => item.id === (category === 'diacritics' ? 'lesson-1-2' : 'lesson-1-3')).vocabulary;
+  const meta = LESSONS_METADATA.find(item => item.id === (category === 'diacritics' ? 'lesson-1-2' : 'lesson-1-3'));
+  const vocabulary = meta ? meta.vocabulary : [];
   const example = vocabulary.find(word => word.jp.includes(kana));
   return { id: kana, kana, romaji, category, lesson, subgroup, meaning, strokes: strokesFor(kana),
     example: example ? `${example.jp} (${example.romaji} - ${example.en})` : `${kana} (${romaji})` };
 }
+
+const KATAKANA_EXAMPLES = {
+  'ア': 'アメリカ (Amerika - America)',
+  'イ': 'イギリス (Igirisu - United Kingdom)',
+  'ウ': 'ウイルス (Uirusu - virus)',
+  'エ': 'エンジニア (enjinia - engineer)',
+  'オ': 'オーストラリア (Oosutoraria - Australia)',
+  'カ': 'カメラ (kamera - camera)',
+  'キ': 'キロ (kiro - kilometer/kilogram)',
+  'ク': 'クラス (kurasu - class)',
+  'ケ': 'ケーキ (keeki - cake)',
+  'コ': 'コンピューター (konpyuutaa - computer)',
+  'サ': 'サッカー (sakkaa - soccer)',
+  'シ': 'シャープペンシル (shaapupenshiru - mechanical pencil)',
+  'ス': 'スマホ (sumaho - smartphone)',
+  'セ': 'セーター (seetaa - sweater)',
+  'ソ': 'ソファー (sofaa - sofa)',
+};
+
+const KATAKANA_STROKE_ITEMS = KATAKANA_PREFINAL_KANA.map(item => ({
+  id: item.kana,
+  kana: item.kana,
+  romaji: item.romaji,
+  category: 'katakana',
+  worksheetId: item.worksheetId,
+  lesson: `Pre-Final · Katakana ${item.worksheetId.replace('katakana-', '').toUpperCase()}-row`,
+  subgroup: 'Katakana (Pre-Final)',
+  meaning: `Practice Katakana ${item.kana} (${item.romaji}) for Pre-Final exam coverage.`,
+  strokes: strokesFor(item.kana),
+  example: KATAKANA_EXAMPLES[item.kana] || `${item.kana} (${item.romaji})`,
+  source: item.source,
+  page: item.page,
+}));
 
 export const HIRAGANA_LESSON_ITEMS = [
   ...BASIC_KANA.map(item => ({
@@ -43,4 +77,5 @@ export const HIRAGANA_LESSON_ITEMS = [
     `${row[0]} + small ${small} = ${row[0]}${small}`))),
   makeItem('っ', 'small tsu', 'special', 'Lesson 1.4', 'Long consonants (Sokuon)',
     'Small っ marks a pause before the following consonant: がっこう (gakkou).'),
+  ...KATAKANA_STROKE_ITEMS,
 ];

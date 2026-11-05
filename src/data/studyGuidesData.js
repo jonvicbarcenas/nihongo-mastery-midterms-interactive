@@ -135,3 +135,200 @@ export const N_PRONUNCIATION_RULES = [
     ]
   }
 ];
+
+export const KOSOADO_GUIDE = {
+  title: 'Ko-So-A-Do Demonstratives & Sentence Patterns',
+  subtitle: 'FL033 Lesson 7 · Professor Jinky R. Delantar, MBA, CPA',
+  distanceSystem: [
+    { prefix: 'Ko~ (こ〜)', role: 'Near Speaker', desc: 'Thing, person, or place is close to the speaker (This / Here)', example: 'これ (kore) / この (kono)', color: 'rose' },
+    { prefix: 'So~ (そ〜)', role: 'Near Listener', desc: 'Near listener, or slightly distant when sharing the same territory (That / There)', example: 'それ (sore) / その (sono)', color: 'blue' },
+    { prefix: 'A~ (あ〜)', role: 'Far from Both', desc: 'Distant from both the speaker and listener (That over there / Over there)', example: 'あれ (are) / あの (ano)', color: 'emerald' },
+    { prefix: 'Do~ (ど〜)', role: 'Interrogative', desc: 'Used to ask questions (Which / Where)', example: 'どれ (dore) / どの (dono)', color: 'purple' }
+  ],
+  koreVsKono: {
+    title: 'Kore (これ) vs Kono (この) Distinction',
+    kore: {
+      type: 'Demonstrative Pronoun',
+      structure: 'これ + は + [Noun] + です。',
+      explanation: 'Stands completely on its own as the topic of the sentence. Followed directly by particle は (wa).',
+      exampleJp: 'これ は スマホ です。',
+      exampleRomaji: 'Kore wa sumaho desu.',
+      exampleEn: 'This is a smart phone.'
+    },
+    kono: {
+      type: 'Adnominal Demonstrative',
+      structure: 'この + [Noun] + は + [Statement] + です。',
+      explanation: 'Must be immediately followed by a noun. Modifies that specific item/person.',
+      exampleJp: 'この スマホ は あたらしい です。',
+      exampleRomaji: 'Kono sumaho wa atarashii desu.',
+      exampleEn: 'This smart phone is new.'
+    }
+  },
+  lesson71: {
+    title: 'Lesson 7.1 Demonstratives for Things (これ・それ・あれ・どれ)',
+    formula: 'Topic wa statement desu → [これ / それ / あれ] は [Noun] です。',
+    rules: [
+      'Kore, Sore, and Are act as the sentence topic marked with particle は (wa).',
+      'The statement of the sentence is the noun being referred to.',
+      'Nan (なん = what) replaces the statement when asking what the item is: 〜は なん です か。',
+      'Ikura (いくら = how much) replaces the statement when asking for price: 〜は いくら です か。',
+      'Dore (どれ = which) asks which one among three or more items: どれ です か。'
+    ],
+    sampleSentences: [
+      { jp: 'これ は えんぴつ です。', romaji: 'Kore wa enpitsu desu.', en: 'This is a pencil.' },
+      { jp: 'これ は ボールペン です。', romaji: 'Kore wa boorupen desu.', en: 'This is a ballpen.' },
+      { jp: 'それ は ほん です。', romaji: 'Sore wa hon desu.', en: 'That is a book.' },
+      { jp: 'それ は じしょ です。', romaji: 'Sore wa jisho desu.', en: 'That is a dictionary.' },
+      { jp: 'あれ は しゃしん です。', romaji: 'Are wa shashin desu.', en: 'That is a picture over there.' },
+      { jp: 'あれ は つくえ です。', romaji: 'Are wa tsukue desu.', en: 'That is a desk over there.' },
+      { jp: 'これ は なん です か。', romaji: 'Kore wa nan desu ka.', en: 'What is this? (lit. This is what?)' },
+      { jp: 'あれ は なん です か。', romaji: 'Are wa nan desu ka.', en: 'What is that over there?' },
+      { jp: 'これ は いくら です か。', romaji: 'Kore wa ikura desu ka.', en: 'How much is this? (lit. This is how much?)' },
+      { jp: 'どれ です か。', romaji: 'Dore desu ka.', en: 'Which one? / Which is it?' }
+    ]
+  },
+  lesson72: {
+    title: 'Lesson 7.2 Demonstratives for Specific Things & People (この・その・あの・どの)',
+    formula: '[この / その / あの] + [Noun] は [Adjective / Ownership] です。',
+    gaRule: 'CRITICAL EXAM RULE: In questions, 「どの + Noun」 is ALWAYS marked using particle が (ga) instead of は (wa): どの [Noun] が [Adjective] です か。',
+    rules: [
+      'Kono, Sono, and Ano precede a noun (thing or person).',
+      'The statement may be an Adjective that describes the specific item (e.g. あたらしい, たかい, おおきい).',
+      'The statement may express Ownership using [Person] の です (e.g. わたし の です, なかむらさん の です).',
+      'Interrogative pattern: どの + Noun + が + Adjective + ですか。'
+    ],
+    sampleSentences: [
+      { jp: 'この スマホ は あたらしい です。', romaji: 'Kono sumaho wa atarashii desu.', en: 'This smart phone is new.' },
+      { jp: 'この カメラ は やすい です。', romaji: 'Kono kamera wa yasui desu.', en: 'This camera is inexpensive.' },
+      { jp: 'その ラジオ は ふるい です。', romaji: 'Sono rajio wa furui desu.', en: 'That radio is old.' },
+      { jp: 'その パソコン は ちいさい です。', romaji: 'Sono pasokon wa chiisai desu.', en: 'That laptop is small.' },
+      { jp: 'あの くるま は たかい です。', romaji: 'Ano kuruma wa takai desu.', en: 'That car over there is expensive.' },
+      { jp: 'あの くるま は わたし の です。', romaji: 'Ano kuruma wa watashi no desu.', en: 'That car over there is mine.' },
+      { jp: 'あの テレビ は おおきい です。', romaji: 'Ano terebi wa ookii desu.', en: 'That television over there is big.' },
+      { jp: 'あの テレビ は なかむら さん の です。', romaji: 'Ano terebi wa Nakamura san no desu.', en: 'That television over there is Mr. Nakamura’s.' },
+      { jp: 'どの スマホ が あたらしい です か。', romaji: 'Dono sumaho ga atarashii desu ka.', en: 'Which smart phone is new? (Notice particle が!)' },
+      { jp: 'どの くるま が たかい です か。', romaji: 'Dono kuruma ga takai desu ka.', en: 'Which car is expensive? (Notice particle が!)' }
+    ]
+  },
+  vocabularyGroups: [
+    {
+      title: 'Stationery & School Items (Slide 4)',
+      items: [
+        { jp: 'ほん', romaji: 'hon', en: 'book' },
+        { jp: 'じしょ', romaji: 'jisho', en: 'dictionary' },
+        { jp: 'ノート', romaji: 'nooto', en: 'notebook' },
+        { jp: 'えんぴつ', romaji: 'enpitsu', en: 'pencil' },
+        { jp: 'シャープペンシル', romaji: 'shaapupenshiru', en: 'mechanical pencil' },
+        { jp: 'ボールペン', romaji: 'boorupen', en: 'ballpen' }
+      ]
+    },
+    {
+      title: 'Bags & Identification Cards (Slide 5)',
+      items: [
+        { jp: 'かばん', romaji: 'kaban', en: 'bag; briefcase' },
+        { jp: 'カード', romaji: 'kaado', en: 'card' },
+        { jp: 'めいし', romaji: 'meishi', en: 'business card' },
+        { jp: 'ざいりゅう カード', romaji: 'zairyuu kaado', en: 'residence card' },
+        { jp: 'テレホン カード', romaji: 'terehon kaado', en: 'telephone card' },
+        { jp: 'めんきょしょう', romaji: 'menkyoshou', en: 'driver’s license' }
+      ]
+    },
+    {
+      title: 'Publications & Furniture (Slide 6-7)',
+      items: [
+        { jp: 'しゃしん', romaji: 'shashin', en: 'picture / photograph' },
+        { jp: 'しんぶん', romaji: 'shinbun', en: 'newspaper' },
+        { jp: 'ざっし', romaji: 'zasshi', en: 'magazine' },
+        { jp: 'てちょう', romaji: 'techou', en: 'pocket notebook' },
+        { jp: 'つくえ', romaji: 'tsukue', en: 'desk' },
+        { jp: 'テーブル', romaji: 'teeburu', en: 'table' },
+        { jp: 'いす', romaji: 'isu', en: 'chair' },
+        { jp: 'かぎ', romaji: 'kagi', en: 'key' },
+        { jp: 'かさ', romaji: 'kasa', en: 'umbrella' },
+        { jp: 'とけい', romaji: 'tokei', en: 'clock, watch' }
+      ]
+    },
+    {
+      title: 'Electronics & Transport (Slide 25-26)',
+      items: [
+        { jp: 'テレビ', romaji: 'terebi', en: 'television' },
+        { jp: 'ラジオ', romaji: 'rajio', en: 'radio' },
+        { jp: 'カメラ', romaji: 'kamera', en: 'camera' },
+        { jp: 'パソコン', romaji: 'pasokon', en: 'laptop; personal computer' },
+        { jp: 'コンピューター', romaji: 'konpyuutaa', en: 'computer' },
+        { jp: 'でんわ', romaji: 'denwa', en: 'telephone' },
+        { jp: 'けいたいでんわ', romaji: 'keitai denwa', en: 'cellphone; mobile phone' },
+        { jp: 'スマホ', romaji: 'sumaho', en: 'smart phone' },
+        { jp: 'くるま', romaji: 'kuruma', en: 'car' }
+      ]
+    },
+    {
+      title: 'Opposing Adjectives & Colors (Slide 27-28)',
+      items: [
+        { jp: 'おおきい ↔ ちいさい', romaji: 'ookii ↔ chiisai', en: 'big / large ↔ small / little' },
+        { jp: 'あたらしい ↔ ふるい', romaji: 'atarashii ↔ furui', en: 'new ↔ old (things/places)' },
+        { jp: 'たかい ↔ やすい', romaji: 'takai ↔ yasui', en: 'expensive ↔ cheap / inexpensive' },
+        { jp: 'しろい / くろい', romaji: 'shiroi / kuroi', en: 'white / black' },
+        { jp: 'あかい / あおい / きいろい', romaji: 'akai / aoi / kiiroi', en: 'red / blue / yellow' }
+      ]
+    }
+  ]
+};
+
+export const KATAKANA_PREFINAL_GUIDE = {
+  title: 'Katakana Pre-Final Exam Reference',
+  subtitle: 'Coverage: a, i, u, e, o · ka, ki, ku, ke, ko · sa, shi, su, se, so (15 Characters)',
+  rows: [
+    {
+      row: 'A-row (ア・イ・ウ・エ・オ)',
+      chars: [
+        { kana: 'ア', romaji: 'a', strokes: 2, tip: 'Two strokes. Top horizontal with hook, then diagonal sweep.' },
+        { kana: 'イ', romaji: 'i', strokes: 2, tip: 'Two strokes. Left slanted drop, then vertical line (person radical 人).' },
+        { kana: 'ウ', romaji: 'u', strokes: 3, tip: 'Three strokes. Top dot, left corner, and right roof curve.' },
+        { kana: 'エ', romaji: 'e', strokes: 3, tip: 'Three strokes. Shaped like capital Roman numeral "I" or girder 工.' },
+        { kana: 'オ', romaji: 'o', strokes: 3, tip: 'Three strokes. Top bar, vertical with left hook, then diagonal drop.' }
+      ]
+    },
+    {
+      row: 'Ka-row (カ・キ・ク・ケ・コ)',
+      chars: [
+        { kana: 'カ', romaji: 'ka', strokes: 2, tip: 'Two strokes. Exactly like hiragana か without the right dot.' },
+        { kana: 'キ', romaji: 'ki', strokes: 3, tip: 'Three strokes. Two horizontal bars crossed by a diagonal slash.' },
+        { kana: 'ク', romaji: 'ku', strokes: 2, tip: 'Two strokes. Slanted stroke, then corner stroke sweeping down.' },
+        { kana: 'ケ', romaji: 'ke', strokes: 3, tip: 'Three strokes. Slash, horizontal bar, and long curving line.' },
+        { kana: 'コ', romaji: 'ko', strokes: 2, tip: 'Two strokes. Top corner, then horizontal bottom base.' }
+      ]
+    },
+    {
+      row: 'Sa-row (サ・シ・ス・セ・ソ)',
+      chars: [
+        { kana: 'サ', romaji: 'sa', strokes: 3, tip: 'Three strokes. Horizontal line crossed by two vertical slashes.' },
+        { kana: 'シ', romaji: 'shi', strokes: 3, tip: 'Three strokes. Two dots, then an upward sweep from bottom-left.' },
+        { kana: 'ス', romaji: 'su', strokes: 2, tip: 'Two strokes. Right-angle hook with diagonal crossing leg. As in スマホ.' },
+        { kana: 'セ', romaji: 'se', strokes: 2, tip: 'Two strokes. Horizontal bar with hook, crossed by an angled line.' },
+        { kana: 'ソ', romaji: 'so', strokes: 2, tip: 'Two strokes. Small dot, then downward stroke from top-right.' }
+      ]
+    }
+  ],
+  lessonLoanwords: [
+    { kana: 'ノート', romaji: 'nooto', en: 'notebook' },
+    { kana: 'シャープペンシル', romaji: 'shaapupenshiru', en: 'mechanical pencil' },
+    { kana: 'ボールペン', romaji: 'boorupen', en: 'ballpen' },
+    { kana: 'カード', romaji: 'kaado', en: 'card' },
+    { kana: 'テレホン カード', romaji: 'terehon kaado', en: 'telephone card' },
+    { kana: 'テーブル', romaji: 'teeburu', en: 'table' },
+    { kana: 'コンピューター', romaji: 'konpyuutaa', en: 'computer' },
+    { kana: 'テレビ', romaji: 'terebi', en: 'television' },
+    { kana: 'ラジオ', romaji: 'rajio', en: 'radio' },
+    { kana: 'カメラ', romaji: 'kamera', en: 'camera' },
+    { kana: 'パソコン', romaji: 'pasokon', en: 'laptop / personal computer' },
+    { kana: 'スマホ', romaji: 'sumaho', en: 'smart phone' },
+    { kana: 'エンジニア', romaji: 'enjinia', en: 'engineer (Lesson 4)' }
+  ],
+  examTips: [
+    'Distinguish シ (shi) vs ツ (tsu): For シ (shi), the two dots are nearly vertical and the final stroke sweeps UPWARDS from bottom-left to top-right. For ツ (tsu), the dots are slanted side-by-side and the last stroke sweeps DOWNWARDS from top-right.',
+    'Distinguish ソ (so) vs ン (n): For ソ (so), the dot is diagonal and the main stroke sweeps DOWNWARDS from top-right. For ン (n), the stroke sweeps UPWARDS from bottom-left.',
+    'Long Vowel Mark (ー): Known as Chōonpu (長音符). Indicates a doubled vowel length in katakana loanwords (e.g. ノート nooto, カード kaado, テーブル teeburu).'
+  ]
+};
+

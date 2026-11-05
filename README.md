@@ -4,11 +4,12 @@ An interactive Japanese study app built with React and Vite, based on the FL033 
 
 ## Learning activities
 
-- Ten hiragana writing worksheets covering all 46 basic characters.
-- Stroke demonstrations, guided tracing and freehand model comparison for 105 kana and combinations.
-- Shuffled hiragana flashcards for all 105 characters, individual kana lessons or writing worksheets, with hidden readings and a review round for missed or skipped cards.
-- Six lecture modules with 183 flashcards and 52 quiz questions.
-- Number worksheets, sentence-building activities and a four-digit number converter.
+- Ten hiragana writing worksheets covering all 46 basic characters, plus pre-final Katakana coverage (A-row, Ka-row, Sa-row).
+- Stroke demonstrations, guided tracing and freehand model comparison for 120 kana and combinations (105 Hiragana + 15 Katakana).
+- Shuffled kana flashcards for all 120 characters, individual kana lessons, writing worksheets, and pre-final Katakana decks, with hidden readings and review rounds.
+- Seven lecture modules (including Lesson 7 Ko-So-A-Do Demonstratives 7.1 & 7.2) with 235 vocabulary flashcards and 70 quiz questions.
+- Number worksheets, 35 sentence-building activities and a four-digit number converter.
+- Interactive study guides and cheat sheets for Ko-So-A-Do, Katakana pre-final exam lookalikes, particles, conjugations, and phonetics.
 - A persistent mistake notebook, optional romaji and browser Japanese speech synthesis.
 - Responsive layouts and pointer input for touch, pen and mouse.
 

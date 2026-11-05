@@ -124,8 +124,8 @@ export default function KanaFlashcardsView({ audioEnabled, showRomaji }) {
     <div className="max-w-3xl mx-auto px-4 py-6 sm:py-8 space-y-6">
       <div>
         <p className="text-xs font-bold uppercase tracking-wider text-torii-600 mb-2">Read · Reveal · Recall</p>
-        <h1 className="text-2xl sm:text-3xl font-extrabold">Hiragana Flashcards</h1>
-        <p className="text-sm text-slate-500 mt-2">Choose all characters or focus on a lesson. Recall the reading before revealing it, then revisit the cards that need practice.</p>
+        <h1 className="text-2xl sm:text-3xl font-extrabold">Kana Flashcards (Hiragana & Katakana)</h1>
+        <p className="text-sm text-slate-500 mt-2">Choose all characters, focus on a lesson, or practice the Pre-Final Katakana coverage (ア〜ソ). Recall the reading before revealing it, then revisit the cards that need practice.</p>
       </div>
       <div className="bg-white border border-slate-200 rounded-2xl p-4">
         <label htmlFor="kana-flashcard-deck" className="block text-sm font-bold mb-2">Flashcard deck</label>

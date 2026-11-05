@@ -356,5 +356,229 @@ export const QUIZ_QUESTIONS = [...ADDITIONAL_QUESTIONS,
     correctIndex: 2,
     explanation: 'どこ (doko) means "Where". (どこですか doko desu ka = Where is it?).',
     audioPhrase: 'どこですか'
+  },
+
+  // ==========================================
+  // LESSON 7: KO-SO-A-DO DEMONSTRATIVES & PRE-FINAL KATAKANA
+  // ==========================================
+  {
+    id: 'q-7-1',
+    lessonId: 'lesson-7',
+    question: 'What does the prefix "Ko~" indicate in the Ko-So-A-Do demonstrative system?',
+    japaneseQuestion: 'こそあど言葉で「こ〜」が表す位置・距離は何ですか？',
+    options: [
+      'The item, person, or place is near the speaker',
+      'The item is near the listener',
+      'The item is far from both speaker and listener',
+      'It is used to ask questions'
+    ],
+    correctIndex: 0,
+    explanation: 'Demonstratives starting with Ko~ (kore, kono) indicate that the thing, person, or place is near the speaker (Slide 3).',
+    audioPhrase: 'これ'
+  },
+  {
+    id: 'q-7-2',
+    lessonId: 'lesson-7',
+    question: 'When do you use demonstratives starting with "So~" (sore, sono)?',
+    japaneseQuestion: '「そ〜」で始まる指示詞（それ、その）はどんな時に使いますか？',
+    options: [
+      'When the item is far from both speaker and listener',
+      'When the item is near the listener, or a bit distant when sharing the same territory',
+      'Exclusively when asking a question',
+      'Only when pointing to the speaker himself'
+    ],
+    correctIndex: 1,
+    explanation: 'So~ indicates that the item is near the listener, or just a bit distant from both when sharing the same territory (Slide 3).',
+    audioPhrase: 'それ'
+  },
+  {
+    id: 'q-7-3',
+    lessonId: 'lesson-7',
+    question: 'Which demonstrative pronoun refers to a thing far from both speaker and listener ("that over there")?',
+    japaneseQuestion: '話し手からも聞き手からも離れた場所にあるものを指す指示詞はどれですか？',
+    options: ['これ (kore)', 'それ (sore)', 'あれ (are)', 'どれ (dore)'],
+    correctIndex: 2,
+    explanation: 'あれ (are) means "that over there", far from both the speaker and the listener (Slide 8, 12).',
+    audioPhrase: 'あれ'
+  },
+  {
+    id: 'q-7-4',
+    lessonId: 'lesson-7',
+    question: 'What is the correct standalone question to ask "Which one?" among three or more choices?',
+    japaneseQuestion: '3つ以上の選択肢から「どれですか」と尋ねる正しい日本語はどれですか？',
+    options: ['どれ です か。 (Dore desu ka.)', 'どの です か。 (Dono desu ka.)', 'なん です か。 (Nan desu ka.)', 'いくら です か。 (Ikura desu ka.)'],
+    correctIndex: 0,
+    explanation: 'どれ (dore) is the interrogative pronoun for things: 「どれ です か。」 (Slide 18, 19). Dono cannot stand alone and must precede a noun.',
+    audioPhrase: 'どれですか'
+  },
+  {
+    id: 'q-7-5',
+    lessonId: 'lesson-7',
+    question: 'What is the essential difference between 「これ」 (kore) and 「この」 (kono)?',
+    japaneseQuestion: '「これ」と「この」の文法的な使い分けの最も重要な違いは何ですか？',
+    options: [
+      'Kore stands alone as the noun/topic; Kono must be immediately followed by a noun',
+      'Kore is used for living things; Kono is used for inanimate objects',
+      'Kore is formal; Kono is informal',
+      'Kono stands alone; Kore must modify an adjective'
+    ],
+    correctIndex: 0,
+    explanation: 'これ (kore) stands alone as topic (これ は スマホ です), whereas この (kono) precedes a noun (この スマホ は あたらしい です) (Slide 29, 31).',
+    audioPhrase: 'これはスマホです'
+  },
+  {
+    id: 'q-7-6',
+    lessonId: 'lesson-7',
+    question: 'In Lesson 7.2, which particle MUST mark 「どの + Noun」 in interrogative sentences like "Which smart phone is new?"',
+    japaneseQuestion: '「どの＋名詞」を使った疑問文（どのスマホがあたらしいですか）で使われる助詞は何ですか？',
+    options: ['Particle は (wa)', 'Particle が (ga)', 'Particle の (no)', 'Particle を (wo)'],
+    correctIndex: 1,
+    explanation: 'CRITICAL RULE from Slide 37: Dono N is marked using particle が (ga): 「どの スマホ が あたらしい です か。」 (Dono sumaho ga atarashii desu ka).',
+    audioPhrase: 'どのスマホがあたらしいですか'
+  },
+  {
+    id: 'q-7-7',
+    lessonId: 'lesson-7',
+    question: 'How do you ask for the price of an item: "How much is this?"',
+    japaneseQuestion: '「これはいくらですか」という値段を尋ねる正しい文はどれですか？',
+    options: [
+      'これ は いくら です か。 (Kore wa ikura desu ka.)',
+      'これ は なん です か。 (Kore wa nan desu ka.)',
+      'この は いくら です か。 (Kono wa ikura desu ka.)',
+      'どれ は いくら です か。 (Dore wa ikura desu ka.)'
+    ],
+    correctIndex: 0,
+    explanation: 'Ikura (how much) replaces the statement when asking for the price of an object (Slide 16, 17): 「これ は いくら です か。」.',
+    audioPhrase: 'これはいくらですか'
+  },
+  {
+    id: 'q-7-8',
+    lessonId: 'lesson-7',
+    question: 'How do you express ownership: "That car over there is mine"?',
+    japaneseQuestion: '「あの車は私の（物）です」を正しく表現した文はどれですか？',
+    options: [
+      'あれ は わたし の くるま です。',
+      'あの くるま は わたし の です。',
+      'その くるま は わたし の です。',
+      'この くるま は わたし の です。'
+    ],
+    correctIndex: 1,
+    explanation: 'Slide 35: 「あの くるま は わたし の です。」 (Ano kuruma wa watashi no desu) uses ano + noun + wa + watashi no desu.',
+    audioPhrase: 'あのくるまはわたしのです'
+  },
+  {
+    id: 'q-7-9',
+    lessonId: 'lesson-7',
+    question: 'How do you say "That television over there is Mr. Nakamura’s"?',
+    japaneseQuestion: '「あのテレビは中村さんのです」の正しい文はどれですか？',
+    options: [
+      'あの テレビ は なかむら さん の です。',
+      'その テレビ は なかむら さん です。',
+      'あれ テレビ は なかむら さん の です。',
+      'どの テレビ は なかむら さん です か。'
+    ],
+    correctIndex: 0,
+    explanation: 'Slide 36: 「あの テレビ は なかむら さん の です。」 (Ano terebi wa Nakamura san no desu).',
+    audioPhrase: 'あのテレビはなかむらさんのです'
+  },
+  {
+    id: 'q-7-10',
+    lessonId: 'lesson-7',
+    question: 'Which pair of i-adjectives represents "expensive" and "cheap / inexpensive"?',
+    japaneseQuestion: '「高い」と「安い」を正しく表すひらがなペアはどれですか？',
+    options: [
+      'たかい (takai) & やすい (yasui)',
+      'おおきい (ookii) & ちいさい (chiisai)',
+      'あたらしい (atarashii) & ふるい (furui)',
+      'しろい (shiroi) & くろい (kuroi)'
+    ],
+    correctIndex: 0,
+    explanation: 'たかい (takai = expensive) and やすい (yasui = cheap/inexpensive) are key opposing adjectives from Slide 27.',
+    audioPhrase: 'たかいやすい'
+  },
+  {
+    id: 'q-7-11',
+    lessonId: 'lesson-7',
+    question: 'What is the Japanese word for "residence card"?',
+    japaneseQuestion: '「在留カード（residence card）」を正しく表したものはどれですか？',
+    options: ['ざいりゅう カード (zairyuu kaado)', 'テレホン カード (terehon kaado)', 'めんきょしょう (menkyoshou)', 'めいし (meishi)'],
+    correctIndex: 0,
+    explanation: 'ざいりゅう カード (zairyuu kaado) means residence card (Slide 5).',
+    audioPhrase: 'ざいりゅうカード'
+  },
+  {
+    id: 'q-7-12',
+    lessonId: 'lesson-7',
+    question: 'What is the Japanese term for "driver’s license"?',
+    japaneseQuestion: '「運転免許証（driver’s license）」を表す言葉はどれですか？',
+    options: ['めんきょしょう (menkyoshou)', 'めいし (meishi)', 'てちょう (techou)', 'じしょ (jisho)'],
+    correctIndex: 0,
+    explanation: 'めんきょしょう (menkyoshou) means driver’s license (Slide 5).',
+    audioPhrase: 'めんきょしょう'
+  },
+  {
+    id: 'q-7-13',
+    lessonId: 'lesson-7',
+    question: 'What does 「てちょう」 (techou) mean in Lesson 7 vocabulary?',
+    japaneseQuestion: '「てちょう」の英語の意味は何ですか？',
+    options: ['Pocket notebook', 'Desk', 'Dictionary', 'Newspaper'],
+    correctIndex: 0,
+    explanation: 'てちょう (techou) means pocket notebook (Slide 6).',
+    audioPhrase: 'てちょう'
+  },
+  {
+    id: 'q-7-14',
+    lessonId: 'lesson-7',
+    question: 'Which of the following Katakana characters corresponds to the vowel "e"?',
+    japaneseQuestion: 'カタカナの「エ」に対応する母音はどれですか？',
+    options: ['a (ア)', 'i (イ)', 'u (ウ)', 'e (エ)'],
+    correctIndex: 3,
+    explanation: 'The Katakana character for "e" is エ (three strokes, shaped like capital I or girder 工).',
+    audioPhrase: 'エ'
+  },
+  {
+    id: 'q-7-15',
+    lessonId: 'lesson-7',
+    question: 'Identify the Katakana characters for the Ka-row (ka, ki, ku, ke, ko) in correct order:',
+    japaneseQuestion: 'カタカナ「カ行（カ・キ・ク・ケ・コ）」の正しい並び順はどれですか？',
+    options: [
+      'カ, キ, ク, ケ, コ',
+      'サ, シ, ス, セ, ソ',
+      'ア, イ, ウ, エ, オ',
+      'タ, チ, ツ, テ, ト'
+    ],
+    correctIndex: 0,
+    explanation: 'The Katakana Ka-row is: カ (ka), キ (ki), ク (ku), ケ (ke), コ (ko).',
+    audioPhrase: 'カキクケコ'
+  },
+  {
+    id: 'q-7-16',
+    lessonId: 'lesson-7',
+    question: 'Which Katakana character corresponds to "shi"?',
+    japaneseQuestion: 'カタカナの「シ」はどれですか？',
+    options: ['シ (shi)', 'ソ (so)', 'ス (su)', 'セ (se)'],
+    correctIndex: 0,
+    explanation: 'シ is Katakana "shi" (3 strokes, upward sweep from bottom-left).',
+    audioPhrase: 'シ'
+  },
+  {
+    id: 'q-7-17',
+    lessonId: 'lesson-7',
+    question: 'How is "laptop / personal computer" written in Japanese Katakana in Lesson 7?',
+    japaneseQuestion: '「パソコン（laptop / personal computer）」の正しいカタカナ表記はどれですか？',
+    options: ['パソコン (pasokon)', 'スマホ (sumaho)', 'テレビ (terebi)', 'カメラ (kamera)'],
+    correctIndex: 0,
+    explanation: 'パソコン (pasokon) is the Katakana word for laptop/personal computer (Slide 25).',
+    audioPhrase: 'パソコン'
+  },
+  {
+    id: 'q-7-18',
+    lessonId: 'lesson-7',
+    question: 'Read the Katakana word 「シャープペンシル」 (shaapupenshiru): what does it mean?',
+    japaneseQuestion: '「シャープペンシル」の意味は何ですか？',
+    options: ['Mechanical pencil', 'Ballpen', 'Notebook', 'Eraser'],
+    correctIndex: 0,
+    explanation: 'シャープペンシル (shaapupenshiru) means mechanical pencil (sharp pencil) (Slide 4).',
+    audioPhrase: 'シャープペンシル'
   }
 ];

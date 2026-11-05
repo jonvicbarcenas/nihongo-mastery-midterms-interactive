@@ -3,7 +3,9 @@ import {
   IRREGULAR_NUMBERS_GUIDE,
   PARTICLES_GUIDE,
   CONJUGATION_CHART,
-  N_PRONUNCIATION_RULES
+  N_PRONUNCIATION_RULES,
+  KOSOADO_GUIDE,
+  KATAKANA_PREFINAL_GUIDE
 } from '../data/studyGuidesData';
 import { speech } from '../utils/speech';
 import { readJapaneseNumber } from '../utils/numbers';
@@ -76,6 +78,26 @@ export default function StudyGuidesView({ showRomaji, audioEnabled }) {
             }`}
           >
             🗣️ Character 「ん」 Phonetics
+          </button>
+          <button
+            onClick={() => setActiveGuideTab('kosoado')}
+            className={`px-4 py-2 rounded-xl whitespace-nowrap transition-all ${
+              activeGuideTab === 'kosoado'
+                ? 'bg-amber-600 text-white shadow-md shadow-amber-200 font-black'
+                : 'bg-white border border-amber-300 text-amber-900 hover:bg-amber-50 font-bold'
+            }`}
+          >
+            🧭 Ko-So-A-Do (Lesson 7)
+          </button>
+          <button
+            onClick={() => setActiveGuideTab('katakana')}
+            className={`px-4 py-2 rounded-xl whitespace-nowrap transition-all ${
+              activeGuideTab === 'katakana'
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-200 font-black'
+                : 'bg-white border border-emerald-300 text-emerald-900 hover:bg-emerald-50 font-bold'
+            }`}
+          >
+            🈸 Katakana Pre-Final (ア〜ソ)
           </button>
         </div>
       </div>
@@ -371,6 +393,268 @@ export default function StudyGuidesView({ showRomaji, audioEnabled }) {
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* TAB 5: KO-SO-A-DO DEMONSTRATIVES (LESSON 7) */}
+      {activeGuideTab === 'kosoado' && (
+        <div className="space-y-6 animate-fade-in">
+
+          {/* Intro & Prefix System */}
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs space-y-4">
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <div>
+                <span className="text-xs font-black uppercase tracking-wider text-amber-600">Lecture 7 Coverage</span>
+                <h3 className="text-xl font-black text-slate-900">{KOSOADO_GUIDE.title}</h3>
+                <p className="text-xs text-slate-500 mt-0.5">{KOSOADO_GUIDE.subtitle}</p>
+              </div>
+            </div>
+
+            <p className="text-sm text-slate-600 leading-relaxed">
+              <strong>Ko-So-A-Do</strong> are sets of demonstratives used to refer, illustrate, or point out things, people, and places.
+              The prefixes indicate the physical or psychological distance from the speaker and listener:
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {KOSOADO_GUIDE.distanceSystem.map((item) => (
+                <div key={item.prefix} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+                  <div>
+                    <div className="text-lg font-black font-jp text-slate-900">{item.prefix}</div>
+                    <div className="text-xs font-bold text-amber-700 mt-0.5">{item.role}</div>
+                    <p className="text-xs text-slate-600 mt-2">{item.desc}</p>
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-slate-200 text-xs font-jp font-semibold text-slate-500">
+                    {item.example}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Kore vs Kono Key Distinction Box */}
+          <div className="bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-slate-50 border-2 border-amber-300 rounded-3xl p-6 shadow-sm">
+            <div className="flex items-center gap-2 text-amber-800 text-xs font-extrabold uppercase tracking-wider mb-2">
+              <span>⚠️ Crucial Exam Distinction</span>
+            </div>
+            <h4 className="text-lg font-black text-slate-900">{KOSOADO_GUIDE.koreVsKono.title}</h4>
+            <p className="text-xs text-slate-600 mt-1 mb-4">
+              Mastering when to use standalone pronouns versus noun-preceding adjectives is essential for the pre-final exam.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white p-5 rounded-2xl border border-amber-200 shadow-xs">
+                <div className="inline-block px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 text-xs font-black mb-2">
+                  7.1 Kore (これ) · Stands Alone
+                </div>
+                <div className="font-mono text-xs text-slate-500 bg-slate-50 p-2 rounded-xl mb-2">
+                  {KOSOADO_GUIDE.koreVsKono.kore.structure}
+                </div>
+                <p className="text-xs text-slate-600 mb-3">{KOSOADO_GUIDE.koreVsKono.kore.explanation}</p>
+                <div className="p-3 rounded-xl bg-slate-50 flex items-center justify-between">
+                  <div>
+                    <div className="font-jp font-bold text-slate-900 text-sm">{KOSOADO_GUIDE.koreVsKono.kore.exampleJp}</div>
+                    {showRomaji && <div className="text-xs text-amber-700">{KOSOADO_GUIDE.koreVsKono.kore.exampleRomaji}</div>}
+                    <div className="text-xs text-slate-500">{KOSOADO_GUIDE.koreVsKono.kore.exampleEn}</div>
+                  </div>
+                  <button onClick={() => playAudio(KOSOADO_GUIDE.koreVsKono.kore.exampleJp)} disabled={!audioEnabled}
+                    className="p-2 text-amber-700 hover:text-amber-900 disabled:opacity-40">
+                    <Volume2 className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="bg-white p-5 rounded-2xl border border-amber-200 shadow-xs">
+                <div className="inline-block px-2.5 py-1 rounded-lg bg-indigo-100 text-indigo-800 text-xs font-black mb-2">
+                  7.2 Kono (この) · Must Precede a Noun
+                </div>
+                <div className="font-mono text-xs text-slate-500 bg-slate-50 p-2 rounded-xl mb-2">
+                  {KOSOADO_GUIDE.koreVsKono.kono.structure}
+                </div>
+                <p className="text-xs text-slate-600 mb-3">{KOSOADO_GUIDE.konoVsKore?.kono?.explanation || KOSOADO_GUIDE.koreVsKono.kono.explanation}</p>
+                <div className="p-3 rounded-xl bg-slate-50 flex items-center justify-between">
+                  <div>
+                    <div className="font-jp font-bold text-slate-900 text-sm">{KOSOADO_GUIDE.koreVsKono.kono.exampleJp}</div>
+                    {showRomaji && <div className="text-xs text-indigo-700">{KOSOADO_GUIDE.koreVsKono.kono.exampleRomaji}</div>}
+                    <div className="text-xs text-slate-500">{KOSOADO_GUIDE.koreVsKono.kono.exampleEn}</div>
+                  </div>
+                  <button onClick={() => playAudio(KOSOADO_GUIDE.koreVsKono.kono.exampleJp)} disabled={!audioEnabled}
+                    className="p-2 text-indigo-700 hover:text-indigo-900 disabled:opacity-40">
+                    <Volume2 className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Lesson 7.1 Detailed Grammar */}
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs space-y-4">
+            <h4 className="text-lg font-black text-slate-900">{KOSOADO_GUIDE.lesson71.title}</h4>
+            <div className="p-3 rounded-xl bg-slate-100 font-mono text-xs text-slate-700 font-semibold">
+              Pattern: {KOSOADO_GUIDE.lesson71.formula}
+            </div>
+            <ul className="text-xs text-slate-600 space-y-1.5 list-disc pl-5">
+              {KOSOADO_GUIDE.lesson71.rules.map((rule, idx) => <li key={idx}>{rule}</li>)}
+            </ul>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+              {KOSOADO_GUIDE.lesson71.sampleSentences.map((s, idx) => (
+                <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                  <div className="min-w-0">
+                    <p className="font-jp font-bold text-sm text-slate-900">{s.jp}</p>
+                    {showRomaji && <p className="text-xs text-amber-700 mt-0.5">{s.romaji}</p>}
+                    <p className="text-xs text-slate-500 mt-0.5">{s.en}</p>
+                  </div>
+                  <button onClick={() => playAudio(s.jp)} disabled={!audioEnabled}
+                    className="p-2 text-slate-400 hover:text-amber-600 disabled:opacity-40">
+                    <Volume2 className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Lesson 7.2 Detailed Grammar & Particle GA Warning */}
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs space-y-4">
+            <h4 className="text-lg font-black text-slate-900">{KOSOADO_GUIDE.lesson72.title}</h4>
+            <div className="p-3 rounded-xl bg-slate-100 font-mono text-xs text-slate-700 font-semibold">
+              Pattern: {KOSOADO_GUIDE.lesson72.formula}
+            </div>
+
+            {/* Particle GA Callout */}
+            <div className="p-4 rounded-2xl bg-amber-500 text-white font-medium text-xs shadow-md">
+              <span className="font-black uppercase tracking-wider block text-amber-100 mb-1">⭐ Exam Rule Alert:</span>
+              {KOSOADO_GUIDE.lesson72.gaRule}
+            </div>
+
+            <ul className="text-xs text-slate-600 space-y-1.5 list-disc pl-5">
+              {KOSOADO_GUIDE.lesson72.rules.map((rule, idx) => <li key={idx}>{rule}</li>)}
+            </ul>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+              {KOSOADO_GUIDE.lesson72.sampleSentences.map((s, idx) => (
+                <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                  <div className="min-w-0">
+                    <p className="font-jp font-bold text-sm text-slate-900">{s.jp}</p>
+                    {showRomaji && <p className="text-xs text-indigo-700 mt-0.5">{s.romaji}</p>}
+                    <p className="text-xs text-slate-500 mt-0.5">{s.en}</p>
+                  </div>
+                  <button onClick={() => playAudio(s.jp)} disabled={!audioEnabled}
+                    className="p-2 text-slate-400 hover:text-indigo-600 disabled:opacity-40">
+                    <Volume2 className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Lesson 7 Vocabulary Categories */}
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs space-y-4">
+            <h4 className="text-lg font-black text-slate-900">Lesson 7 Vocabulary Reference Groups</h4>
+            <p className="text-xs text-slate-500">All words directly transcribed from Professor Delantar’s slides. Tap to listen.</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {KOSOADO_GUIDE.vocabularyGroups.map((group, gIdx) => (
+                <div key={gIdx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                  <h5 className="font-black text-xs uppercase tracking-wider text-amber-700 mb-3">{group.title}</h5>
+                  <div className="space-y-2">
+                    {group.items.map((it, iIdx) => (
+                      <div key={iIdx} className="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between text-xs">
+                        <div>
+                          <span className="font-jp font-bold text-slate-900">{it.jp}</span>
+                          {showRomaji && <span className="text-slate-400 ml-1.5 font-mono">({it.romaji})</span>}
+                          <span className="text-slate-500 ml-1.5">— {it.en}</span>
+                        </div>
+                        <button onClick={() => playAudio(it.jp.split(' ↔ ')[0].split(' / ')[0])} disabled={!audioEnabled}
+                          className="text-slate-400 hover:text-amber-600 disabled:opacity-40">
+                          <Volume2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      )}
+
+      {/* TAB 6: KATAKANA PRE-FINAL (ア〜ソ) */}
+      {activeGuideTab === 'katakana' && (
+        <div className="space-y-6 animate-fade-in">
+
+          {/* Katakana Header */}
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs space-y-3">
+            <span className="text-xs font-black uppercase tracking-wider text-emerald-600">Pre-Final Exam Coverage</span>
+            <h3 className="text-xl font-black text-slate-900">{KATAKANA_PREFINAL_GUIDE.title}</h3>
+            <p className="text-sm text-slate-600">{KATAKANA_PREFINAL_GUIDE.subtitle}</p>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Katakana is angular and primarily used for foreign loanwords (外来語 gairaigo), onomatopoeia, and technical terms.
+              For your pre-final exam, master the first 15 characters: <strong>A-row (ア〜オ)</strong>, <strong>Ka-row (カ〜コ)</strong>, and <strong>Sa-row (サ〜ソ)</strong>.
+            </p>
+          </div>
+
+          {/* 3 Rows of Katakana Characters */}
+          <div className="space-y-4">
+            {KATAKANA_PREFINAL_GUIDE.rows.map((rowGroup, rIdx) => (
+              <div key={rIdx} className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs space-y-3">
+                <h4 className="font-black text-sm text-emerald-800">{rowGroup.row}</h4>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                  {rowGroup.chars.map((char) => (
+                    <div key={char.kana} className="p-3 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-between text-center relative group hover:bg-emerald-50/50 transition-colors">
+                      <div className="w-full flex justify-between items-center text-[10px] text-slate-400">
+                        <span className="bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded-md font-bold">{char.strokes} strokes</span>
+                        <button onClick={() => playAudio(char.kana)} disabled={!audioEnabled}
+                          aria-label={`Hear ${char.kana}`}
+                          className="hover:text-emerald-600 disabled:opacity-40">
+                          <Volume2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                      <div className="font-jp text-4xl font-black text-slate-900 my-2">{char.kana}</div>
+                      <div className="text-xs font-bold text-emerald-700">{char.romaji}</div>
+                      <p className="text-[10px] text-slate-500 mt-2 line-clamp-2">{char.tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Exam Watch-outs: Tricky Lookalikes */}
+          <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-slate-50 border-2 border-emerald-300 rounded-3xl p-6 space-y-3">
+            <h4 className="text-base font-black text-emerald-950 flex items-center gap-2">
+              <span>💡 Important Exam Watch-outs: Tricky Katakana Pairs</span>
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+              {KATAKANA_PREFINAL_GUIDE.examTips.map((tip, idx) => (
+                <div key={idx} className="p-4 rounded-2xl bg-white border border-emerald-200 text-xs text-slate-700 leading-relaxed shadow-xs">
+                  {tip}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Real Katakana Loanwords from Lesson 7 */}
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-xs space-y-4">
+            <h4 className="text-lg font-black text-slate-900">Lesson 7 Loanwords Written in Katakana</h4>
+            <p className="text-xs text-slate-500">Notice how foreign words use katakana plus the prolonged sound mark (ー chōonpu):</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+              {KATAKANA_PREFINAL_GUIDE.lessonLoanwords.map((w, idx) => (
+                <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                  <div>
+                    <span className="block font-jp font-bold text-sm text-slate-900">{w.kana}</span>
+                    {showRomaji && <span className="block text-[11px] text-emerald-700">{w.romaji}</span>}
+                    <span className="block text-xs text-slate-500">{w.en}</span>
+                  </div>
+                  <button onClick={() => playAudio(w.kana)} disabled={!audioEnabled}
+                    className="p-1.5 text-slate-400 hover:text-emerald-600 disabled:opacity-40">
+                    <Volume2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       )}
 

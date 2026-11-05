@@ -4,7 +4,7 @@ import { speech } from '../utils/speech';
 import { soundFx } from '../utils/sound';
 import confetti from 'canvas-confetti';
 import { sampleStroke, matchesGuidedStroke } from '../utils/strokes';
-import { WRITING_WORKSHEETS } from '../data/writingWorksheets';
+import { WRITING_WORKSHEETS, KATAKANA_PREFINAL_WORKSHEETS } from '../data/writingWorksheets';
 import { Play, RotateCcw, Undo2, Check, Star, Volume2, Award, ArrowLeft, ArrowRight, PenTool } from 'lucide-react';
 
 export default function DrawingCanvas({ showRomaji, audioEnabled, initialWorksheetId = 'all' }) {
@@ -30,6 +30,7 @@ export default function DrawingCanvas({ showRomaji, audioEnabled, initialWorkshe
   // Filter items
   const filteredChars = HIRAGANA_LESSON_ITEMS.filter(item => {
     if (activeFilter === 'all') return true;
+    if (activeFilter === 'katakana') return item.category === 'katakana' && (worksheetId === 'all' || item.worksheetId === worksheetId);
     if (activeFilter === 'special') return ['っ', 'ん'].includes(item.kana);
     if (activeFilter === 'basic') return item.category === 'basic' && (worksheetId === 'all' || item.worksheetId === worksheetId);
     return item.category === activeFilter;
@@ -336,6 +337,16 @@ export default function DrawingCanvas({ showRomaji, audioEnabled, initialWorkshe
               Basic kana (46)
             </button>
             <button
+              onClick={() => { setActiveFilter('katakana'); setWorksheetId('all'); }}
+              className={`px-3 py-1.5 rounded-xl whitespace-nowrap transition-colors ${
+                activeFilter === 'katakana'
+                  ? 'bg-amber-600 text-white'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              Katakana (15)
+            </button>
+            <button
               onClick={() => setActiveFilter('diacritics')}
               className={`px-3 py-1.5 rounded-xl whitespace-nowrap transition-colors ${
                 activeFilter === 'diacritics'
@@ -373,6 +384,15 @@ export default function DrawingCanvas({ showRomaji, audioEnabled, initialWorkshe
               className="w-full rounded-xl border border-slate-200 bg-white p-2 text-sm">
               <option value="all">All 46 basic characters</option>
               {WRITING_WORKSHEETS.map(sheet => <option key={sheet.id} value={sheet.id}>Writing #{sheet.number}: {sheet.characters.join(' ')}</option>)}
+            </select>
+          </div>}
+
+          {activeFilter === 'katakana' && <div className="mb-4">
+            <label htmlFor="katakana-row-select" className="block text-xs font-bold text-slate-600 mb-2">Pre-Final Katakana Row</label>
+            <select id="katakana-row-select" value={worksheetId} onChange={event => setWorksheetId(event.target.value)}
+              className="w-full rounded-xl border border-slate-200 bg-white p-2 text-sm">
+              <option value="all">All 15 Pre-Final characters (ア〜ソ)</option>
+              {KATAKANA_PREFINAL_WORKSHEETS.map(sheet => <option key={sheet.id} value={sheet.id}>{sheet.title}</option>)}
             </select>
           </div>}
 

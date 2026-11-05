@@ -23,3 +23,17 @@ export const WRITING_WORKSHEETS = [
 export const BASIC_KANA = WRITING_WORKSHEETS.flatMap(sheet => sheet.characters.map((kana, index) => ({
   kana, romaji: sheet.readings[index], worksheetId: sheet.id, source: sheet.file, page: sheet.page,
 })));
+
+export const KATAKANA_PREFINAL_WORKSHEETS = [
+  { id: 'katakana-a', number: 1, name: 'A-row', characters: ['ア', 'イ', 'ウ', 'エ', 'オ'], readings: ['a', 'i', 'u', 'e', 'o'], title: 'A-row (a, i, u, e, o)' },
+  { id: 'katakana-ka', number: 2, name: 'Ka-row', characters: ['カ', 'キ', 'ク', 'ケ', 'コ'], readings: ['ka', 'ki', 'ku', 'ke', 'ko'], title: 'Ka-row (ka, ki, ku, ke, ko)' },
+  { id: 'katakana-sa', number: 3, name: 'Sa-row', characters: ['サ', 'シ', 'ス', 'セ', 'ソ'], readings: ['sa', 'shi', 'su', 'se', 'so'], title: 'Sa-row (sa, shi, su, se, so)' },
+];
+
+export const KATAKANA_PREFINAL_KANA = KATAKANA_PREFINAL_WORKSHEETS.flatMap(sheet => sheet.characters.map((kana, index) => ({
+  kana,
+  romaji: sheet.readings[index],
+  worksheetId: sheet.id,
+  source: 'Pre-final exam coverage: Katakana a-so',
+  page: sheet.number,
+})));

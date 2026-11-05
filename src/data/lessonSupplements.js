@@ -6,6 +6,7 @@ export const LESSON_SOURCES = {
   'lesson-3': { file: 'FL033 - 03 (1) - Lesson 3 Numbers.pdf', pages: '2–29' },
   'lesson-4': { file: 'FL033 - Lesson 4 (Book).pdf', pages: '2–17' },
   'lesson-6': { file: '2026-09-29 - Lesson 6 Simple Sentences Particles.pdf', pages: '2–24' },
+  'lesson-7': { file: 'Lesson 7 - Ko-So-A-Do Demonstratives.pdf', pages: '1–39 (Lessons 7.1 and 7.2)' },
 };
 
 const vocab = (rows) => rows.map(([jp, romaji, en, page, tip]) => ({ jp, romaji, en, page, tip }));
@@ -112,6 +113,11 @@ export const EXTRA_RULES = {
     'なに becomes なん before ですか: なんですか (What is it?). Compare なにか (something), which keeps に.',
     'の links nouns beyond literal ownership too: にほん の たべもの (Japanese food). Add もの for mine/yours: わたし の もの.',
   ],
+  'lesson-7': [
+    'Dono + Noun always takes particle が (ga) instead of は (wa) in questions: どの スマホ が あたらしい です か。',
+    'Distinguish Kore vs Kono: Kore stands alone as the topic (これ は スマホ です), while Kono directly modifies the following noun (この スマホ は あたらしい です).',
+    'Ownership statements use の です: あの くるま は わたし の です (That car over there is mine); あの テレビ は なかむら さん の です (That television over there is Mr. Nakamura’s).',
+  ],
 };
 
 export const DIACRITIC_ROWS = [
@@ -145,5 +151,32 @@ export const SENTENCE_EXERCISES = {
     { prompt: 'Is she a student?', tokens: ['かのじょ', 'は', 'がくせい', 'です', 'か'], romaji: 'Kanojo wa gakusei desu ka.', page: 16, explanation: 'Keep the statement’s word order and add か at the end.' },
     { prompt: 'Is it a book, or a dictionary?', tokens: ['ほん', 'ですか', 'じしょ', 'ですか'], romaji: 'Hon desu ka, jisho desu ka.', page: 20, explanation: 'Alternative questions use A ですか、B ですか。' },
     { prompt: 'What is it?', tokens: ['なん', 'です', 'か'], romaji: 'Nan desu ka.', page: 23, explanation: 'なに changes to なん before ですか.' },
+  ],
+  'lesson-7': [
+    { prompt: 'This is a pencil.', tokens: ['これ', 'は', 'えんぴつ', 'です'], romaji: 'Kore wa enpitsu desu.', page: 10, explanation: 'Kore refers to a thing near the speaker and acts as the topic marked with wa.' },
+    { prompt: 'This is a ballpen.', tokens: ['これ', 'は', 'ボールペン', 'です'], romaji: 'Kore wa boorupen desu.', page: 10, explanation: 'Topic kore + wa + noun + desu.' },
+    { prompt: 'That is a book.', tokens: ['それ', 'は', 'ほん', 'です'], romaji: 'Sore wa hon desu.', page: 11, explanation: 'Sore refers to a thing near the listener or shared space.' },
+    { prompt: 'That is a dictionary.', tokens: ['それ', 'は', 'じしょ', 'です'], romaji: 'Sore wa jisho desu.', page: 11, explanation: 'Sore wa [noun] desu: That is a dictionary.' },
+    { prompt: 'That is a picture over there.', tokens: ['あれ', 'は', 'しゃしん', 'です'], romaji: 'Are wa shashin desu.', page: 12, explanation: 'Are refers to something far from both speaker and listener.' },
+    { prompt: 'What is this?', tokens: ['これ', 'は', 'なん', 'です', 'か'], romaji: 'Kore wa nan desu ka.', page: 14, explanation: 'Nan (what) replaces the statement in the sentence to ask what the item is.' },
+    { prompt: 'What is that over there?', tokens: ['あれ', 'は', 'なん', 'です', 'か'], romaji: 'Are wa nan desu ka.', page: 15, explanation: 'Are wa nan desu ka: What is that over there?' },
+    { prompt: 'How much is this?', tokens: ['これ', 'は', 'いくら', 'です', 'か'], romaji: 'Kore wa ikura desu ka.', page: 17, explanation: 'Ikura (how much) replaces the statement to ask for the price.' },
+    { prompt: 'Which one is it?', tokens: ['どれ', 'です', 'か'], romaji: 'Dore desu ka.', page: 19, explanation: 'Dore asks which one among three or more choices.' },
+    { prompt: 'This smart phone is new.', tokens: ['この', 'スマホ', 'は', 'あたらしい', 'です'], romaji: 'Kono sumaho wa atarashii desu.', page: 31, explanation: 'Kono precedes a noun (sumaho), followed by wa and adjective atarashii.' },
+    { prompt: 'This camera is inexpensive.', tokens: ['この', 'カメラ', 'は', 'やすい', 'です'], romaji: 'Kono kamera wa yasui desu.', page: 32, explanation: 'Kono kamera wa yasui desu: This camera is cheap/inexpensive.' },
+    { prompt: 'That radio is old.', tokens: ['その', 'ラジオ', 'は', 'ふるい', 'です'], romaji: 'Sono rajio wa furui desu.', page: 33, explanation: 'Sono rajio wa furui desu: That radio is old.' },
+    { prompt: 'That laptop is small.', tokens: ['その', 'パソコン', 'は', 'ちいさい', 'です'], romaji: 'Sono pasokon wa chiisai desu.', page: 34, explanation: 'Sono pasokon wa chiisai desu: That laptop is small.' },
+    { prompt: 'That car over there is expensive.', tokens: ['あの', 'くるま', 'は', 'たかい', 'です'], romaji: 'Ano kuruma wa takai desu.', page: 35, explanation: 'Ano kuruma wa takai desu: That car over there is expensive.' },
+    { prompt: 'That car over there is mine.', tokens: ['あの', 'くるま', 'は', 'わたし', 'の', 'です'], romaji: 'Ano kuruma wa watashi no desu.', page: 35, explanation: 'Express ownership using watashi no desu (is mine).' },
+    { prompt: 'That television over there is big.', tokens: ['あの', 'テレビ', 'は', 'おおきい', 'です'], romaji: 'Ano terebi wa ookii desu.', page: 36, explanation: 'Ano terebi wa ookii desu: That television over there is big.' },
+    { prompt: 'That television over there is Mr. Nakamura’s.', tokens: ['あの', 'テレビ', 'は', 'なかむら', 'さん', 'の', 'です'], romaji: 'Ano terebi wa Nakamura san no desu.', page: 36, explanation: 'Nakamura-san no desu expresses ownership.' },
+    { prompt: 'Which smart phone is new?', tokens: ['どの', 'スマホ', 'が', 'あたらしい', 'です', 'か'], romaji: 'Dono sumaho ga atarashii desu ka.', page: 37, explanation: 'Dono + Noun questions are ALWAYS marked with particle ga, not wa!' },
+    { prompt: 'Which car is expensive?', tokens: ['どの', 'くるま', 'が', 'たかい', 'です', 'か'], romaji: 'Dono kuruma ga takai desu ka.', page: 38, explanation: 'Dono + noun is marked using the particle ga.' },
+    { prompt: 'Exercise 19.1: This is a business card.', tokens: ['これ', 'は', 'めいし', 'です'], romaji: 'Kore wa meishi desu.', page: 20, explanation: 'Exercise #19 sentence 1: This is a business card.' },
+    { prompt: 'Exercise 19.3: Is this a pocket notebook?', tokens: ['これ', 'は', 'てちょう', 'です', 'か'], romaji: 'Kore wa techou desu ka.', page: 21, explanation: 'Exercise #19 sentence 3: Is this a pocket notebook?' },
+    { prompt: 'Exercise 19.4: That is a newspaper.', tokens: ['それ', 'は', 'しんぶん', 'です'], romaji: 'Sore wa shinbun desu.', page: 21, explanation: 'Exercise #19 sentence 4: That is a newspaper.' },
+    { prompt: 'Exercise 19.5: Is that a chair?', tokens: ['それ', 'は', 'いす', 'です', 'か'], romaji: 'Sore wa isu desu ka.', page: 21, explanation: 'Exercise #19 sentence 5: Is that a chair?' },
+    { prompt: 'Exercise 19.6: That is a clock over there.', tokens: ['あれ', 'は', 'とけい', 'です'], romaji: 'Are wa tokei desu.', page: 22, explanation: 'Exercise #19 sentence 6: That is a clock over there.' },
+    { prompt: 'Exercise 19.7: Is that a computer over there?', tokens: ['あれ', 'は', 'コンピューター', 'です', 'か'], romaji: 'Are wa konpyuutaa desu ka.', page: 22, explanation: 'Exercise #19 sentence 7: Is that a computer over there?' },
   ],
 };

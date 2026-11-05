@@ -210,6 +210,91 @@ const LESSONS_BASE = [
       { jp: 'めいし', romaji: 'meishi', en: 'business card' },
       { jp: 'かさ', romaji: 'kasa', en: 'umbrella' }
     ]
+  },
+  {
+    id: 'lesson-7',
+    number: '7',
+    title: 'Ko-So-A-Do Demonstratives',
+    japaneseTitle: 'こそあど言葉（指示詞）',
+    badge: '7.1 Things & 7.2 Specific Items/People',
+    color: 'from-amber-600 to-orange-600',
+    description: 'Master the demonstrative systems: Kore/Sore/Are/Dore for things, and Kono/Sono/Ano/Dono for modifying specific things and people with adjectives and ownership, plus particle ga with dono.',
+    vocabularyCount: 52,
+    rules: [
+      'Ko-So-A-Do System: Ko~ = near speaker ("this"); So~ = near listener or shared territory ("that"); A~ = far from both speaker and listener ("that over there"); Do~ = interrogative to ask questions ("which").',
+      'Lesson 7.1 Demonstratives for Things: Kore, Sore, and Are act as the sentence topic marked with は (wa): 「これ / それ / あれ は [Noun] です。」',
+      '7.1 Questions: Replace the statement with なん (nan) to ask what something is (〜はなんですか) or いくら (ikura) to ask the price (〜はいくらですか). Use 「どれですか」 (Dore desu ka) to ask which one among three or more items.',
+      'Lesson 7.2 Demonstratives for Specific Things and People: Kono, Sono, and Ano precede a noun: 「この / その / あの [Noun] は [Statement] です。」 The statement can be an adjective describing the noun (e.g. あたらしいです) or express ownership (e.g. わたし の です / なかむらさん の です).',
+      '7.2 Interrogative with Particle が (ga): Dono modifies a noun to ask which one, and Dono + Noun is ALWAYS marked using particle が (ga) instead of は (wa): 「どの スマホ が あたらしい ですか。」 / 「どの くるま が たかい ですか。」',
+      'Comparing Kore vs Kono: Kore stands alone as the topic pronoun (これはスマホです - This is a smartphone). Kono directly modifies the following noun (このスマホはあたらしいです - This smartphone is new).'
+    ],
+    vocabulary: [
+      // 7.1 & 7.2 Demonstratives & Interrogatives
+      { jp: 'これ', romaji: 'kore', en: 'this (thing near speaker)', tip: 'Pronoun: used as topic followed by は' },
+      { jp: 'それ', romaji: 'sore', en: 'that (thing near listener)', tip: 'Pronoun: near listener or shared territory' },
+      { jp: 'あれ', romaji: 'are', en: 'that over there (far from both)', tip: 'Pronoun: far from both speaker and listener' },
+      { jp: 'どれ', romaji: 'dore', en: 'which one (among 3 or more)', tip: 'Interrogative pronoun: どれ です か' },
+      { jp: 'この', romaji: 'kono', en: 'this [noun]', tip: 'Precedes a noun: この + Noun は...' },
+      { jp: 'その', romaji: 'sono', en: 'that [noun]', tip: 'Precedes a noun: その + Noun は...' },
+      { jp: 'あの', romaji: 'ano', en: 'that [noun] over there', tip: 'Precedes a noun: あの + Noun は...' },
+      { jp: 'どの', romaji: 'dono', en: 'which [noun]', tip: 'Precedes a noun: takes particle が in questions (どの + Noun が...)' },
+      { jp: 'なん', romaji: 'nan', en: 'what', tip: 'Replaces statement to ask what: なん です か' },
+      { jp: 'いくら', romaji: 'ikura', en: 'how much (price)', tip: 'Replaces statement to ask price: いくら です か' },
+
+      // Stationery & Classroom Objects (Page 4)
+      { jp: 'ほん', romaji: 'hon', en: 'book', tip: 'Noun: book' },
+      { jp: 'じしょ', romaji: 'jisho', en: 'dictionary', tip: 'Noun: dictionary (digraph しょ)' },
+      { jp: 'ノート', romaji: 'nooto', en: 'notebook', tip: 'Katakana loanword with chouon (ー)' },
+      { jp: 'えんぴつ', romaji: 'enpitsu', en: 'pencil', tip: 'Noun: pencil (handakuten ぴ)' },
+      { jp: 'シャープペンシル', romaji: 'shaapupenshiru', en: 'mechanical pencil', tip: 'Katakana: mechanical pencil (sharp pencil)' },
+      { jp: 'ボールペン', romaji: 'boorupen', en: 'ballpen', tip: 'Katakana: ballpoint pen' },
+
+      // Bags & Identification Cards (Page 5)
+      { jp: 'かばん', romaji: 'kaban', en: 'bag; briefcase', tip: 'Noun: bag or briefcase' },
+      { jp: 'カード', romaji: 'kaado', en: 'card', tip: 'Katakana loanword' },
+      { jp: 'めいし', romaji: 'meishi', en: 'business card', tip: 'Noun: name card / business card' },
+      { jp: 'ざいりゅう カード', romaji: 'zairyuu kaado', en: 'residence card', tip: 'Noun: residence card for foreign residents in Japan' },
+      { jp: 'テレホン カード', romaji: 'terehon kaado', en: 'telephone card', tip: 'Katakana: prepaid phone card' },
+      { jp: 'めんきょしょう', romaji: 'menkyoshou', en: 'driver’s license', tip: 'Noun: driver’s license (digraphs きょ & しょ)' },
+
+      // Publications & Furniture (Page 6)
+      { jp: 'しゃしん', romaji: 'shashin', en: 'picture; photograph', tip: 'Noun: photograph (digraph しゃ)' },
+      { jp: 'しんぶん', romaji: 'shinbun', en: 'newspaper', tip: 'Noun: newspaper' },
+      { jp: 'ざっし', romaji: 'zasshi', en: 'magazine', tip: 'Noun: magazine (sokuon っ)' },
+      { jp: 'てちょう', romaji: 'techou', en: 'pocket notebook', tip: 'Noun: personal pocket organizer / diary' },
+      { jp: 'つくえ', romaji: 'tsukue', en: 'desk', tip: 'Noun: desk' },
+      { jp: 'テーブル', romaji: 'teeburu', en: 'table', tip: 'Katakana: dining or meeting table' },
+
+      // Household & Everyday Items (Page 7)
+      { jp: 'いす', romaji: 'isu', en: 'chair', tip: 'Noun: chair' },
+      { jp: 'コンピューター', romaji: 'konpyuutaa', en: 'computer', tip: 'Katakana: desktop/general computer' },
+      { jp: 'とけい', romaji: 'tokei', en: 'clock, watch', tip: 'Noun: clock or wristwatch' },
+      { jp: 'かぎ', romaji: 'kagi', en: 'key', tip: 'Noun: key (dakuten ぎ)' },
+      { jp: 'かさ', romaji: 'kasa', en: 'umbrella', tip: 'Noun: umbrella' },
+
+      // Tech & Vehicles (Pages 25-26)
+      { jp: 'テレビ', romaji: 'terebi', en: 'television', tip: 'Katakana: television' },
+      { jp: 'ラジオ', romaji: 'rajio', en: 'radio', tip: 'Katakana: radio' },
+      { jp: 'カメラ', romaji: 'kamera', en: 'camera', tip: 'Katakana: camera' },
+      { jp: 'パソコン', romaji: 'pasokon', en: 'laptop; personal computer', tip: 'Katakana: personal computer / laptop' },
+      { jp: 'でんわ', romaji: 'denwa', en: 'telephone', tip: 'Noun: telephone' },
+      { jp: 'けいたいでんわ', romaji: 'keitai denwa', en: 'cellphone; mobile phone', tip: 'Noun: cellular mobile phone' },
+      { jp: 'スマホ', romaji: 'sumaho', en: 'smart phone', tip: 'Katakana: smartphone' },
+      { jp: 'くるま', romaji: 'kuruma', en: 'car', tip: 'Noun: automobile / car' },
+
+      // Adjectives (Pages 27-28)
+      { jp: 'おおきい', romaji: 'ookii', en: 'big; large', tip: 'I-adjective: big / large' },
+      { jp: 'ちいさい', romaji: 'chiisai', en: 'small; little', tip: 'I-adjective: small / little' },
+      { jp: 'あたらしい', romaji: 'atarashii', en: 'new', tip: 'I-adjective: new' },
+      { jp: 'ふるい', romaji: 'furui', en: 'old (things/places)', tip: 'I-adjective: old (used for inanimate objects, not people)' },
+      { jp: 'たかい', romaji: 'takai', en: 'expensive; high', tip: 'I-adjective: expensive (also means high/tall)' },
+      { jp: 'やすい', romaji: 'yasui', en: 'cheap; inexpensive', tip: 'I-adjective: inexpensive / cheap' },
+      { jp: 'しろい', romaji: 'shiroi', en: 'white', tip: 'I-adjective / color: white' },
+      { jp: 'くろい', romaji: 'kuroi', en: 'black', tip: 'I-adjective / color: black' },
+      { jp: 'きいろい', romaji: 'kiiroi', en: 'yellow', tip: 'I-adjective / color: yellow' },
+      { jp: 'あおい', romaji: 'aoi', en: 'blue', tip: 'I-adjective / color: blue' },
+      { jp: 'あかい', romaji: 'akai', en: 'red', tip: 'I-adjective / color: red' }
+    ]
   }
 ];
 

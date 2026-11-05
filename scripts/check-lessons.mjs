@@ -13,7 +13,7 @@ import { shuffleKanaDeck } from '../src/utils/kanaFlashcards.js';
 
 const sourceFiles = [...new Set([...LESSONS_METADATA.map(lesson => lesson.source.file), ...WRITING_WORKSHEETS.map(sheet => sheet.file)])].sort();
 const actualFiles = readdirSync(new URL('..', import.meta.url)).filter(file => file.endsWith('.pdf')).sort();
-assert.equal(sourceFiles.length, 9);
+assert.equal(sourceFiles.length, 10);
 if (actualFiles.length > 0 || process.argv.includes('--require-pdfs')) {
   assert.deepEqual(sourceFiles, actualFiles, 'Every local PDF must be mapped to a lesson or worksheet');
 }
@@ -22,14 +22,15 @@ assert.equal(BASIC_KANA.length, 46);
 assert.equal(new Set(BASIC_KANA.map(item => item.kana)).size, 46);
 const kanaPaths = JSON.parse(readFileSync(new URL('../src/data/kanaStrokes.json', import.meta.url), 'utf8')).paths;
 for (const item of BASIC_KANA) assert.ok(kanaPaths[item.kana]?.length, `Missing writing model for ${item.kana}`);
+for (const char of 'アイウエオカキクケコサシスセソ') assert.ok(kanaPaths[char]?.length, `Missing writing model for ${char}`);
 assert.deepEqual(WRITING_WORKSHEETS.map(sheet => sheet.characters.length), [5, 5, 5, 5, 5, 5, 5, 3, 5, 3]);
 
 const flashcardIds = KANA_FLASHCARDS.map(card => card.id);
-assert.equal(flashcardIds.length, 105);
-assert.equal(new Set(flashcardIds).size, 105, 'Each character must have one flashcard');
-assert.equal(KANA_FLASHCARD_DECKS.length, 16);
-assert.equal(new Set(KANA_FLASHCARD_DECKS.map(deck => deck.id)).size, 16);
-assert.deepEqual(KANA_FLASHCARD_DECKS.slice(0, 6).map(deck => deck.cardIds.length), [105, 46, 25, 33, 1, 1]);
+assert.equal(flashcardIds.length, 120);
+assert.equal(new Set(flashcardIds).size, 120, 'Each character must have one flashcard');
+assert.equal(KANA_FLASHCARD_DECKS.length, 21);
+assert.equal(new Set(KANA_FLASHCARD_DECKS.map(deck => deck.id)).size, 21);
+assert.deepEqual(KANA_FLASHCARD_DECKS.slice(0, 6).map(deck => deck.cardIds.length), [120, 105, 15, 5, 5, 5]);
 for (const deck of KANA_FLASHCARD_DECKS) {
   assert.ok(deck.cardIds.length > 0, deck.id);
   assert.equal(new Set(deck.cardIds).size, deck.cardIds.length, deck.id);
@@ -47,9 +48,10 @@ assert.deepEqual(shuffleKanaDeck([]), []);
 assert.deepEqual(shuffleKanaDeck(['ん'], 'ん'), ['ん']);
 for (const card of KANA_FLASHCARDS) assert.ok(card.kana && card.reading && card.lesson && card.tip, card.id);
 
-assert.equal(LESSONS_METADATA.length, 6);
+assert.equal(LESSONS_METADATA.length, 7);
 assert.equal(LESSONS_METADATA.find(lesson => lesson.id === 'lesson-2').vocabulary.length, 48);
 assert.equal(LESSONS_METADATA.find(lesson => lesson.id === 'lesson-4').vocabulary.length, 28);
+assert.equal(LESSONS_METADATA.find(lesson => lesson.id === 'lesson-7').vocabulary.length, 52);
 assert.equal(DIACRITIC_ROWS.flatMap(row => [...row[2]]).length, 25);
 assert.equal(DIGRAPH_ROWS.length * 3, 33);
 assert.equal(new Set(QUIZ_QUESTIONS.map(question => question.id)).size, QUIZ_QUESTIONS.length);
@@ -108,4 +110,4 @@ assert.equal(displayOption('Three digits (like in English)', false), 'Three digi
 global.localStorage = { getItem: () => '{broken', setItem: () => { throw new Error('unavailable'); } };
 assert.equal(readStored('key', true), true);
 assert.doesNotThrow(() => writeStored('key', true));
-console.log(`Lesson checks passed: ${sourceFiles.length} PDFs mapped, 10 writing worksheets / 46 basic kana, ${LESSONS_METADATA.reduce((n, l) => n + l.vocabularyCount, 0)} vocabulary flashcards, 105 kana flashcards / 16 decks, ${QUIZ_QUESTIONS.length} questions, ${readings.length} reference number readings, storage and stroke validation.`);
+console.log(`Lesson checks passed: ${sourceFiles.length} PDFs mapped, 10 writing worksheets / 46 basic kana, ${LESSONS_METADATA.reduce((n, l) => n + l.vocabularyCount, 0)} vocabulary flashcards, ${KANA_FLASHCARDS.length} kana flashcards / ${KANA_FLASHCARD_DECKS.length} decks, ${QUIZ_QUESTIONS.length} questions, ${readings.length} reference number readings, storage and stroke validation.`);

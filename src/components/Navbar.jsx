@@ -5,7 +5,7 @@ export default function Navbar({ activeTab, setActiveTab, showRomaji, setShowRom
   audioEnabled, setAudioEnabled, mistakesCount }) {
   const tabs = [
     { id: 'lessons', label: 'Lessons', icon: Library },
-    { id: 'flashcards', label: 'Hiragana Flashcards', short: 'Cards', icon: Layers },
+    { id: 'flashcards', label: 'Kana Flashcards', short: 'Cards', icon: Layers },
     { id: 'drawing', label: 'Kana Tracing', short: 'Tracing', icon: PenTool },
     { id: 'quizzes', label: 'Lesson Quizzes', short: 'Quizzes', icon: CheckCircle2 },
     { id: 'study', label: 'Study Guides', short: 'Guides', icon: BookOpen },

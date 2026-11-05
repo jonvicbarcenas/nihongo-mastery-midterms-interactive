@@ -111,7 +111,7 @@ export default function LessonsView({ showRomaji, audioEnabled, onStartQuiz, onS
         </ul>
         <p className="mt-5 pt-4 border-t border-slate-100 text-xs text-slate-500"><BookOpen className="w-4 h-4 inline mr-1" />
           Source: {lesson.source.file} · pages {lesson.source.pages}.
-          {['lesson-2', 'lesson-3', 'lesson-4', 'lesson-6'].includes(lessonId) && ' Kana readings supplement the romaji in the slides.'}
+          {['lesson-2', 'lesson-3', 'lesson-4', 'lesson-6', 'lesson-7'].includes(lessonId) && ' Kana readings supplement the romaji in the slides.'}
         </p>
       </section>
       {['lesson-1-2', 'lesson-1-3'].includes(lessonId) && <KanaChart key={`chart-${lessonId}`} lessonId={lessonId} showRomaji={showRomaji} audioEnabled={audioEnabled} />}

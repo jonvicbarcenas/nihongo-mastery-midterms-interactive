@@ -15,6 +15,8 @@ Reviewed 15 October 2026. All nine PDFs in the project folder were extracted pag
 | `FL033 - Hiragana Writing #s 1-3.pdf` | 3 | Worksheets 1–3: vowels, K-row and S-row | All 15 characters have demo, guided tracing and freehand comparison. Open any worksheet from Lessons or select it in the tracing view. |
 | `FL033 - Hiragana Writing #s 4-6.pdf` | 3 | Worksheets 4–6: T-row, N-row and H-row | All 15 characters, including ち, つ and ふ, use the same three-stage practice with source page references. |
 | `FL033 - Hiragana Writing #s 7-10.pdf` | 4 | Worksheets 7–10: M-row, Y-row, R-row and わ・を・ん | All 16 characters complete the 46 basic kana; worksheets retain the original grouping and Next character advances within the selection. |
+| `Lesson 7 - Ko-So-A-Do Demonstratives.pdf` | 39 | Lesson 7: Ko-So-A-Do Demonstratives (7.1 Things: kore, sore, are, dore; 7.2 Specific items/people: kono, sono, ano, dono; nan, ikura, ga particle rule, ownership, adjective statements) | All 52 vocabulary and demonstrative entries, comprehensive rules, Kore vs Kono comparison, 25 sentence-building activities (including Exercise #19), 18 quiz questions, and interactive study guide tables. |
+| `Pre-Final Exam Katakana Coverage` | 1 | Katakana: a, i, u, e, o (ア〜オ), ka, ki, ku, ke, ko (カ〜コ), sa, shi, su, se, so (サ〜ソ) | Sourced KanjiVG stroke order models for all 15 Katakana characters; 3-stage animated tracing with row filter; dedicated flashcard decks; study guide with loanwords and tricky lookalikes (シ vs ツ, ソ vs ン). |
 
 There is no Lesson 5 PDF in the supplied folder; the app does not invent that lesson. The combined digraph file explicitly contains Lessons 1.3, 1.4 and 1.5.
 
